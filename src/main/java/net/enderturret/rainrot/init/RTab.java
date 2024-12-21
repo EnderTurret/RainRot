@@ -60,7 +60,7 @@ public final class RTab {
 
 				addAll(output, DATA_PEARL);
 
-				addAll(output, RBlocks.VENDING_MACHINE, RBlocks.ZAPPER, RBlocks.TUNNEL);
+				addAll(output, RBlocks.FIVE_PEBBSI_VENDING_MACHINE, RBlocks.ZAPPER, RBlocks.TUNNEL);
 
 				addAll(output, RBlocks.MONK_SLUG_PLUSH, RBlocks.SURVIVOR_SLUG_PLUSH, RBlocks.HUNTER_SLUG_PLUSH,
 						RBlocks.GOURMAND_SLUG_PLUSH, RBlocks.ARTIFICER_SLUG_PLUSH, RBlocks.RIVULET_SLUG_PLUSH,

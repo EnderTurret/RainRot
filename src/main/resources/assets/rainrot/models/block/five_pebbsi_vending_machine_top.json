@@ -1,8 +1,8 @@
 {
 	"texture_size": [64, 64],
 	"textures": {
-		"1": "rainrot:block/vending_machine_top",
-		"particle": "rainrot:block/vending_machine_top"
+		"1": "rainrot:block/five_pebbsi_vending_machine_top",
+		"particle": "rainrot:block/five_pebbsi_vending_machine_top"
 	},
 	"elements": [
 		{

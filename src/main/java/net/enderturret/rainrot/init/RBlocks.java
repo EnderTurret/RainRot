@@ -27,7 +27,7 @@ public final class RBlocks {
 
 	public static final DeferredRegister<Block> REGISTRY = DeferredRegister.create(BuiltInRegistries.BLOCK, RainRot.MOD_ID);
 
-	public static final Holder<Block> VENDING_MACHINE = REGISTRY.register("vending_machine", () -> new VendingMachineBlock(props().sound(SoundType.METAL).requiresCorrectToolForDrops().strength(0.5F)));
+	public static final Holder<Block> FIVE_PEBBSI_VENDING_MACHINE = REGISTRY.register("five_pebbsi_vending_machine", () -> new VendingMachineBlock(props().sound(SoundType.METAL).requiresCorrectToolForDrops().strength(0.5F)));
 	public static final Holder<Block> ZAPPER = REGISTRY.register("zapper", () -> new ZapperBlock(props().sound(SoundType.METAL).requiresCorrectToolForDrops().strength(0.5F)));
 	public static final Holder<Block> TUNNEL = REGISTRY.register("tunnel", () -> new TunnelBlock(props().sound(SoundType.METAL).requiresCorrectToolForDrops().strength(0.5F)));
 
@@ -49,7 +49,7 @@ public final class RBlocks {
 
 	static {
 		final Function<String, ResourceLocation> f = path -> ResourceLocation.fromNamespaceAndPath("contentsmp", path);
-		REGISTRY.addAlias(f.apply("vending_machine"), VENDING_MACHINE.getKey().location());
+		REGISTRY.addAlias(f.apply("vending_machine"), FIVE_PEBBSI_VENDING_MACHINE.getKey().location());
 		REGISTRY.addAlias(f.apply("zapper"), ZAPPER.getKey().location());
 		REGISTRY.addAlias(f.apply("tunnel"), TUNNEL.getKey().location());
 		REGISTRY.addAlias(f.apply("artificer_slug_plush"), ARTIFICER_SLUG_PLUSH.getKey().location());

@@ -13,14 +13,14 @@
           "type": "minecraft:item",
           "conditions": [
             {
-              "block": "rainrot:vending_machine",
+              "block": "rainrot:five_pebbsi_vending_machine",
               "condition": "minecraft:block_state_property",
               "properties": {
                 "half": "lower"
               }
             }
           ],
-          "name": "rainrot:vending_machine"
+          "name": "rainrot:five_pebbsi_vending_machine"
         }
       ],
       "rolls": 1.0
