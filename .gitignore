@@ -1,0 +1,15 @@
+# Gradle
+.gradle/
+build/
+run/
+
+# Eclipse
+*.launch
+.settings/
+.classpath
+.project
+bin/
+
+logs/
+home/
+/.apt_generated/

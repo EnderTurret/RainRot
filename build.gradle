@@ -1,0 +1,79 @@
+plugins {
+    id 'eclipse'
+    id 'net.neoforged.moddev' version '1.0.21'
+}
+
+version = '1.0.0+1.21.1'
+group = 'net.enderturret'
+base {
+    archivesName = 'RainRot'
+}
+
+java.toolchain.languageVersion = JavaLanguageVersion.of(21)
+
+sourceSets.main.resources { srcDir 'src/generated/resources' }
+
+neoForge {
+    version = '21.1.72'
+
+    mods {
+        contentsmp {
+            sourceSet sourceSets.main
+        }
+    }
+
+    parchment {
+        // https://parchmentmc.org/docs/getting-started
+        // https://ldtteam.jfrog.io/ui/native/parchmentmc-public/org/parchmentmc/data/
+        minecraftVersion = '1.21'
+        mappingsVersion = '2024.07.28'
+    }
+
+    runs {
+        client {
+            client()
+            ideName = 'runRainRotClient'
+        }
+
+        server {
+            server()
+            ideName = 'runRainRotServer'
+        }
+
+        data {
+            data()
+            ideName = 'runRainRotData'
+            programArguments.addAll '--mod', 'rainrot', '--all', '--output', file('src/generated/resources/').getAbsolutePath(), '--existing', file('src/main/resources/').getAbsolutePath()
+        }
+    }
+}
+
+tasks.named('jar', Jar).configure {
+    manifest {
+        attributes([
+            'Specification-Title': 'RainRot',
+            'Specification-Vendor': 'EnderTurret',
+            'Specification-Version': '1',
+            'Implementation-Title': project.name,
+            'Implementation-Version': "${version}",
+            'Implementation-Vendor' : 'EnderTurret'
+        ])
+    }
+}
+
+tasks.withType(JavaCompile).configureEach {
+    options.encoding = 'UTF-8' // Use the UTF-8 charset for Java compilation
+}
+
+tasks.withType(AbstractArchiveTask).configureEach {
+    preserveFileTimestamps = false
+    reproducibleFileOrder = true
+}
+
+tasks.named('processResources', ProcessResources).configure {
+    doLast {
+        fileTree(dir: outputs.files.asPath, include: '**/*.json').each {
+            File file -> file.text = groovy.json.JsonOutput.toJson(new groovy.json.JsonSlurper().parse(file))
+        }
+    }
+}
