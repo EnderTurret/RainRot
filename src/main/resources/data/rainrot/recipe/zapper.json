@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "BLB",
+    "BRB",
+    "BLB"
+  ],
+  "key": {
+    "B": {
+      "item": "minecraft:blue_concrete"
+    },
+    "R": {
+      "item": "minecraft:redstone_block"
+    },
+    "L": {
+      "item": "minecraft:lightning_rod"
+    }
+  },
+  "result": {
+    "id": "rainrot:zapper"
+  }
+}

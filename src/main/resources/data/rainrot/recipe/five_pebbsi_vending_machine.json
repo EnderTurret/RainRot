@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "CCC",
+    "CPC",
+    "CCC"
+  ],
+  "key": {
+    "C": {
+      "item": "minecraft:blue_concrete"
+    },
+    "P": {
+      "item": "rainrot:five_pebbles_plush"
+    }
+  },
+  "result": {
+    "id": "rainrot:five_pebbsi_vending_machine"
+  }
+}
