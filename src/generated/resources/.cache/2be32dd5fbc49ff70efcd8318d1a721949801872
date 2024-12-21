@@ -1,4 +1,4 @@
-// 1.21.1	2024-12-20T23:34:47.253652924	Item Models: rainrot
+// 1.21.1	2024-12-21T02:07:05.205472955	Item Models: rainrot
 3f41ae326271bf96441e4ed4c78a7352c34d611e assets/rainrot/models/item/artificer_slug_plush.json
 0f2fb25ebfa6d0256fc009b8b52c08f55cc7b5ac assets/rainrot/models/item/bowl_of_memory_conflakes.json
 bdb9e6fc14ec082440afb3ec2bea3fd11404cce0 assets/rainrot/models/item/bowl_of_unfortunate_development.json
@@ -6,6 +6,7 @@ bdb9e6fc14ec082440afb3ec2bea3fd11404cce0 assets/rainrot/models/item/bowl_of_unfo
 9931c585d6619b725441bacd070d4ee0c5bc2b57 assets/rainrot/models/item/five_pebbles_plush.json
 875062ae20c509e2915e1c2cbb2ee366af1d117e assets/rainrot/models/item/gourmand_slug_plush.json
 5028b963e13a53f5aae28e5e72b97525d78b1068 assets/rainrot/models/item/hunter_slug_plush.json
+9c44b366ecb68057900081de588c56f5f0351c7c assets/rainrot/models/item/inv_slug_plush.json
 2ad9406710fb0741b52fa15075f51ff3d734ad6f assets/rainrot/models/item/looks_to_the_moon_plush.json
 ad2cd918ec1407a76f2b24d662aa813ae07eb539 assets/rainrot/models/item/miniature_iterator.json
 293c045b672bbca72224e7015ce22489df4e921d assets/rainrot/models/item/monk_slug_plush.json

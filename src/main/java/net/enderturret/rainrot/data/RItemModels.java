@@ -35,6 +35,7 @@ public final class RItemModels extends ItemModelProvider {
 		simpleBlockItem(RBlocks.SPEARMASTER_SLUG_PLUSH.value());
 		simpleBlockItem(RBlocks.SURVIVOR_SLUG_PLUSH.value());
 		simpleBlockItem(RBlocks.WATCHER_SLUG_PLUSH.value());
+		simpleBlockItem(RBlocks.INV_SLUG_PLUSH.value());
 		simpleBlockItem(RBlocks.FIVE_PEBBLES_PLUSH.value());
 		simpleBlockItem(RBlocks.LOOKS_TO_THE_MOON_PLUSH.value());
 		simpleBlockItem(RBlocks.NO_SIGNIFICANT_HARASSMENT_PLUSH.value());

@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "WWW",
+    "WMW",
+    "WWW"
+  ],
+  "key": {
+    "W": {
+      "item": "minecraft:black_wool"
+    },
+    "M": {
+      "item": "rainrot:sliver_of_straw_plush"
+    }
+  },
+  "result": {
+    "id": "rainrot:inv_slug_plush"
+  }
+}

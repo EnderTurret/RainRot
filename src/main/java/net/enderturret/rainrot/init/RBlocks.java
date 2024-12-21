@@ -15,6 +15,7 @@ import net.minecraft.world.level.material.PushReaction;
 import net.neoforged.neoforge.registries.DeferredRegister;
 
 import net.enderturret.rainrot.RainRot;
+import net.enderturret.rainrot.block.InvPlushieBlock;
 import net.enderturret.rainrot.block.IteratorPlushieBlock;
 import net.enderturret.rainrot.block.MiniIteratorBlock;
 import net.enderturret.rainrot.block.SaintPlushieBlock;
@@ -40,6 +41,7 @@ public final class RBlocks {
 	public static final Holder<Block> SPEARMASTER_SLUG_PLUSH = REGISTRY.register("spearmaster_slug_plush", () -> new SlugPlushieBlock(plush(MapColor.COLOR_PURPLE)));
 	public static final Holder<Block> SURVIVOR_SLUG_PLUSH = REGISTRY.register("survivor_slug_plush", () -> new SlugPlushieBlock(plush(MapColor.TERRACOTTA_WHITE)));
 	public static final Holder<Block> WATCHER_SLUG_PLUSH = REGISTRY.register("watcher_slug_plush", () -> new SlugPlushieBlock(plush(MapColor.COLOR_BLACK)));
+	public static final Holder<Block> INV_SLUG_PLUSH = REGISTRY.register("inv_slug_plush", () -> new InvPlushieBlock(plush(MapColor.COLOR_BLACK)));
 	public static final Holder<Block> FIVE_PEBBLES_PLUSH = REGISTRY.register("five_pebbles_plush", () -> new IteratorPlushieBlock(plush(MapColor.COLOR_PINK)));
 	public static final Holder<Block> LOOKS_TO_THE_MOON_PLUSH = REGISTRY.register("looks_to_the_moon_plush", () -> new IteratorPlushieBlock(plush(MapColor.COLOR_LIGHT_BLUE)));
 	public static final Holder<Block> NO_SIGNIFICANT_HARASSMENT_PLUSH = REGISTRY.register("no_significant_harassment_plush", () -> new IteratorPlushieBlock(plush(MapColor.COLOR_GREEN)));

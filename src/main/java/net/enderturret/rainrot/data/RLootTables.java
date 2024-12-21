@@ -49,6 +49,7 @@ public final class RLootTables extends LootTableProvider {
 			dropSelf(RBlocks.SPEARMASTER_SLUG_PLUSH.value());
 			dropSelf(RBlocks.SURVIVOR_SLUG_PLUSH.value());
 			dropSelf(RBlocks.WATCHER_SLUG_PLUSH.value());
+			dropSelf(RBlocks.INV_SLUG_PLUSH.value());
 			dropSelf(RBlocks.FIVE_PEBBLES_PLUSH.value());
 			dropSelf(RBlocks.LOOKS_TO_THE_MOON_PLUSH.value());
 			dropSelf(RBlocks.NO_SIGNIFICANT_HARASSMENT_PLUSH.value());

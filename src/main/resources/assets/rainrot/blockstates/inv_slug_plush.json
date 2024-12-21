@@ -1,0 +1,12 @@
+{
+  "variants": {
+    "facing=east,cursed=false":  { "model": "rainrot:block/inv_slug_plush", "y": 90  },
+    "facing=west,cursed=false":  { "model": "rainrot:block/inv_slug_plush", "y": 270 },
+    "facing=south,cursed=false": { "model": "rainrot:block/inv_slug_plush", "y": 180 },
+    "facing=north,cursed=false": { "model": "rainrot:block/inv_slug_plush"           },
+    "facing=east,cursed=true":   { "model": "rainrot:block/inv_slug_plush_cursed", "y": 90  },
+    "facing=west,cursed=true":   { "model": "rainrot:block/inv_slug_plush_cursed", "y": 270 },
+    "facing=south,cursed=true":  { "model": "rainrot:block/inv_slug_plush_cursed", "y": 180 },
+    "facing=north,cursed=true":  { "model": "rainrot:block/inv_slug_plush_cursed"           }
+  }
+}
