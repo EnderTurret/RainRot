@@ -17,7 +17,7 @@ neoForge {
     version = '21.1.72'
 
     mods {
-        contentsmp {
+        rainrot {
             sourceSet sourceSets.main
         }
     }
