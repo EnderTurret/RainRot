@@ -1,6 +1,7 @@
 modLoader="javafml"
 loaderVersion="[1,)"
 license="LGPL v2.1 (code), CC-BY 4.0 (assets)"
+issueTrackerURL="https://github.com/EnderTurret/RainRot/issues"
 
 [[mods]]
     modId="rainrot"
@@ -11,6 +12,8 @@ license="LGPL v2.1 (code), CC-BY 4.0 (assets)"
     version="${file.jarVersion}"
     authors="EnderTurret, PuffballFungus"
     credits="cmusounddesign on freesound, for the vending machine dispense sound"
+    displayURL="https://github.com/EnderTurret/RainRot"
+    logoFile="icon.png"
 
 [[dependencies.rainrot]]
     modId="neoforge"
