@@ -59,6 +59,8 @@ tasks.named('jar', Jar).configure {
             'Implementation-Vendor' : 'EnderTurret'
         ])
     }
+
+    exclude '.cache'
 }
 
 tasks.withType(JavaCompile).configureEach {
