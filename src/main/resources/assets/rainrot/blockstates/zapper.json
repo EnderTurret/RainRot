@@ -1,0 +1,22 @@
+{
+  "variants": {
+    "axis=x,powered=true,part=top":     { "model": "rainrot:block/zapper_top", "x": 90, "y": 270 },
+    "axis=x,powered=true,part=middle":  { "model": "rainrot:block/zapper_middle", "x": 90, "y": 270 },
+    "axis=x,powered=true,part=bottom":  { "model": "rainrot:block/zapper_bottom", "x": 90, "y": 270 },
+    "axis=x,powered=false,part=top":    { "model": "rainrot:block/zapper_top_off", "x": 90, "y": 270 },
+    "axis=x,powered=false,part=middle": { "model": "rainrot:block/zapper_middle_off", "x": 90, "y": 270 },
+    "axis=x,powered=false,part=bottom": { "model": "rainrot:block/zapper_bottom_off", "x": 90, "y": 270 },
+    "axis=y,powered=true,part=top":     { "model": "rainrot:block/zapper_top"        },
+    "axis=y,powered=true,part=middle":  { "model": "rainrot:block/zapper_middle"     },
+    "axis=y,powered=true,part=bottom":  { "model": "rainrot:block/zapper_bottom"     },
+    "axis=y,powered=false,part=top":    { "model": "rainrot:block/zapper_top_off"    },
+    "axis=y,powered=false,part=middle": { "model": "rainrot:block/zapper_middle_off" },
+    "axis=y,powered=false,part=bottom": { "model": "rainrot:block/zapper_bottom_off" },
+    "axis=z,powered=true,part=top":     { "model": "rainrot:block/zapper_top", "x": 90 },
+    "axis=z,powered=true,part=middle":  { "model": "rainrot:block/zapper_middle", "x": 90 },
+    "axis=z,powered=true,part=bottom":  { "model": "rainrot:block/zapper_bottom", "x": 90 },
+    "axis=z,powered=false,part=top":    { "model": "rainrot:block/zapper_top_off", "x": 90 },
+    "axis=z,powered=false,part=middle": { "model": "rainrot:block/zapper_middle_off", "x": 90 },
+    "axis=z,powered=false,part=bottom": { "model": "rainrot:block/zapper_bottom_off", "x": 90 }
+  }
+}

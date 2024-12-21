@@ -1,0 +1,13 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "rainrot:item/solution"
+  },
+  "display": {
+    "thirdperson_righthand": {
+      "rotation": [ 68, 0, 0 ],
+      "translation": [ -6, -3.75, 25],
+      "scale": [ 1.4, 1.4, 1.4 ]
+    }
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "parent": "rainrot:block/regular_slug_plush",
+  "textures": {
+    "2": "rainrot:block/slug/watcher",
+    "particle": "rainrot:block/slug/watcher"
+  }
+}

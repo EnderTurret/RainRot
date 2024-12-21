@@ -1,0 +1,26 @@
+modLoader="javafml"
+loaderVersion="[1,)"
+license="LGPL v2.1"
+
+[[mods]]
+    modId="rainrot"
+    displayName="Rain Rot"
+    description='''
+    
+    '''
+    version="${file.jarVersion}"
+    authors="EnderTurret, PuffballFungus"
+
+[[dependencies.rainrot]]
+    modId="neoforge"
+    type="required"
+    versionRange="[21.1,21.2)"
+    ordering="NONE"
+    side="BOTH"
+
+[[dependencies.rainrot]]
+    modId="minecraft"
+    type="required"
+    versionRange="[1.21,1.21.2)"
+    ordering="NONE"
+    side="BOTH"

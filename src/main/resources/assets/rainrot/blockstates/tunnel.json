@@ -1,0 +1,8 @@
+{
+  "variants": {
+    "facing=east":  { "model": "rainrot:block/tunnel", "y": 90  },
+    "facing=west":  { "model": "rainrot:block/tunnel", "y": 270 },
+    "facing=south": { "model": "rainrot:block/tunnel", "y": 180 },
+    "facing=north": { "model": "rainrot:block/tunnel"           }
+  }
+}

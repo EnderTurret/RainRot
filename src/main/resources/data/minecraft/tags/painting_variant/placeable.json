@@ -1,0 +1,11 @@
+{
+  "replace": false,
+  "values": [
+    "rainrot:iterators_against_bioengineering",
+    "rainrot:karma_companionship",
+    "rainrot:karma_gluttony",
+    "rainrot:karma_lust",
+    "rainrot:karma_survival",
+    "rainrot:karma_violence"
+  ]
+}

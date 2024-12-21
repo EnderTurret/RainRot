@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "WWW",
+    "WMW",
+    "WWW"
+  ],
+  "key": {
+    "W": {
+      "item": "minecraft:black_wool"
+    },
+    "M": {
+      "item": "minecraft:emerald"
+    }
+  },
+  "result": {
+    "id": "rainrot:watcher_slug_plush"
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "parent": "rainrot:item/template_soda_can",
+  "textures": {
+    "0": "rainrot:item/five_pebbsi_crystal"
+  }
+}

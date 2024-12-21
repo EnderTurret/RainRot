@@ -1,0 +1,22 @@
+{
+	"parent": "block/block",
+	"texture_size": [32, 32],
+	"textures": {
+		"particle": "#box"
+	},
+	"elements": [
+		{
+			"from": [3.5, 0, 6.5],
+			"to": [12.5, 12, 9.5],
+			"rotation": {"angle": 0, "axis": "y", "origin": [3, 0, 7]},
+			"faces": {
+				"north": {"uv": [0, 0, 4.5, 6], "texture": "#box"},
+				"east": {"uv": [0, 6, 1.5, 12], "texture": "#box"},
+				"south": {"uv": [4.5, 0, 9, 6], "texture": "#box"},
+				"west": {"uv": [1.5, 6, 3, 12], "texture": "#box"},
+				"up": {"uv": [7.5, 7.5, 3, 6], "texture": "#box"},
+				"down": {"uv": [7.5, 7.5, 3, 9], "texture": "#box"}
+			}
+		}
+	]
+}

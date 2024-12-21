@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    "rainrot:vending_machine",
+    "rainrot:zapper",
+    "rainrot:tunnel",
+    "rainrot:miniature_iterator"
+  ]
+}

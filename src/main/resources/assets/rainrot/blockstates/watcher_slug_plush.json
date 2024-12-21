@@ -1,0 +1,8 @@
+{
+  "variants": {
+    "facing=east":  { "model": "rainrot:block/watcher_slug_plush", "y": 90  },
+    "facing=west":  { "model": "rainrot:block/watcher_slug_plush", "y": 270 },
+    "facing=south": { "model": "rainrot:block/watcher_slug_plush", "y": 180 },
+    "facing=north": { "model": "rainrot:block/watcher_slug_plush"           }
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "WWW",
+    "WMW",
+    "WWW"
+  ],
+  "key": {
+    "W": {
+      "item": "minecraft:orange_wool"
+    },
+    "M": {
+      "item": "minecraft:glowstone"
+    }
+  },
+  "result": {
+    "id": "rainrot:seven_red_suns_plush"
+  }
+}

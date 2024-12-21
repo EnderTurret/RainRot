@@ -1,0 +1,7 @@
+{
+  "parent": "rainrot:block/zapper_top",
+  "textures": {
+    "0": "rainrot:block/zapper_off",
+    "particle": "rainrot:block/zapper_off"
+  }
+}

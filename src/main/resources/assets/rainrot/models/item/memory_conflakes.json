@@ -1,0 +1,6 @@
+{
+  "parent": "rainrot:item/template_cereal_box",
+  "textures": {
+    "box": "rainrot:item/memory_conflakes"
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "variants": {
+    "facing=east":  { "model": "rainrot:block/miniature_iterator", "y": 90  },
+    "facing=west":  { "model": "rainrot:block/miniature_iterator", "y": 270 },
+    "facing=south": { "model": "rainrot:block/miniature_iterator", "y": 180 },
+    "facing=north": { "model": "rainrot:block/miniature_iterator"           }
+  }
+}

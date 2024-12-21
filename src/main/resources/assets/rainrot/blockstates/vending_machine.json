@@ -1,0 +1,12 @@
+{
+  "variants": {
+    "facing=north,half=upper": { "model": "rainrot:block/vending_machine_top"              },
+    "facing=north,half=lower": { "model": "rainrot:block/vending_machine_bottom"           },
+    "facing=east,half=upper":  { "model": "rainrot:block/vending_machine_top",    "y": 90  },
+    "facing=east,half=lower":  { "model": "rainrot:block/vending_machine_bottom", "y": 90  },
+    "facing=south,half=upper": { "model": "rainrot:block/vending_machine_top",    "y": 180 },
+    "facing=south,half=lower": { "model": "rainrot:block/vending_machine_bottom", "y": 180 },
+    "facing=west,half=upper":  { "model": "rainrot:block/vending_machine_top",    "y": 270 },
+    "facing=west,half=lower":  { "model": "rainrot:block/vending_machine_bottom", "y": 270 }
+  }
+}

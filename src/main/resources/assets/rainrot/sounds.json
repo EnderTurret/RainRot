@@ -1,0 +1,6 @@
+{
+  "vending_machine_dispense": {
+    "sounds": [ "rainrot:vending_machine_dispense" ],
+    "subtitle": "subtitles.rainrot.vending_machine_dispense"
+  }
+}

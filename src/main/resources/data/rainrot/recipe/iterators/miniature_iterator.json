@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "SSS",
+    "SDS",
+    "SSS"
+  ],
+  "key": {
+    "S": {
+      "item": "minecraft:deepslate"
+    },
+    "D": {
+      "item": "minecraft:comparator"
+    }
+  },
+  "result": {
+    "id": "rainrot:miniature_iterator"
+  }
+}

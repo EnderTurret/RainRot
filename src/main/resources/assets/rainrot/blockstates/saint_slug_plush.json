@@ -1,0 +1,12 @@
+{
+  "variants": {
+    "facing=east,extended=false":  { "model": "rainrot:block/saint_slug_plush", "y": 90  },
+    "facing=west,extended=false":  { "model": "rainrot:block/saint_slug_plush", "y": 270 },
+    "facing=south,extended=false": { "model": "rainrot:block/saint_slug_plush", "y": 180 },
+    "facing=north,extended=false": { "model": "rainrot:block/saint_slug_plush"           },
+    "facing=east,extended=true":   { "model": "rainrot:block/saint_tongue_slug_plush", "y": 90  },
+    "facing=west,extended=true":   { "model": "rainrot:block/saint_tongue_slug_plush", "y": 270 },
+    "facing=south,extended=true":  { "model": "rainrot:block/saint_tongue_slug_plush", "y": 180 },
+    "facing=north,extended=true":  { "model": "rainrot:block/saint_tongue_slug_plush"           }
+  }
+}
