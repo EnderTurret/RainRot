@@ -1,15 +1,16 @@
 modLoader="javafml"
 loaderVersion="[1,)"
-license="LGPL v2.1"
+license="LGPL v2.1 (code), CC-BY 4.0 (assets)"
 
 [[mods]]
     modId="rainrot"
     displayName="Rain Rot"
     description='''
-    
+    A Minecraft mod that adds a bunch of things from Rain World, such as plushies.
     '''
     version="${file.jarVersion}"
     authors="EnderTurret, PuffballFungus"
+    credits="cmusounddesign on freesound, for the vending machine dispense sound"
 
 [[dependencies.rainrot]]
     modId="neoforge"
