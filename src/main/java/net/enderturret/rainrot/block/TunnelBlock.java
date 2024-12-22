@@ -1,6 +1,14 @@
 package net.enderturret.rainrot.block;
 
+import java.util.List;
+
+import net.minecraft.ChatFormatting;
 import net.minecraft.core.BlockPos;
+import net.minecraft.network.chat.Component;
+import net.minecraft.network.chat.Style;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.TooltipFlag;
+import net.minecraft.world.item.Item.TooltipContext;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.shapes.CollisionContext;
@@ -62,5 +70,10 @@ public final class TunnelBlock extends WaterloggableHorizontalDirectionalBlock {
 			return COLLISION_AABB[state.getValue(FACING).get2DDataValue()];
 
 		return Shapes.empty();
+	}
+
+	@Override
+	public void appendHoverText(ItemStack stack, TooltipContext context, List<Component> tooltipComponents, TooltipFlag tooltipFlag) {
+		tooltipComponents.add(Component.translatable("block.rainrot.tunnel.instructions").setStyle(Style.EMPTY.withItalic(true).withColor(ChatFormatting.GRAY)));
 	}
 }

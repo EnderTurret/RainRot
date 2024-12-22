@@ -26,8 +26,11 @@
   "item.rainrot.five_pebbsi.desc.review.10": "\"Weird taste.\" - Five Pebbles",
 
   "block.rainrot.five_pebbsi_vending_machine": "Five Pebbsi Vending Machine",
+  "block.rainrot.five_pebbsi_vending_machine.instructions": "Right-click the vending machine's top front face with its currency to receive a drink!",
   "block.rainrot.zapper": "Zapper",
+  "block.rainrot.zapper.instructions": "[Can be powered.]",
   "block.rainrot.tunnel": "Tunnel",
+  "block.rainrot.tunnel.instructions": "Crouch in front of tunnels to crawl through them!",
 
   "block.rainrot.artificer_slug_plush": "The Artificer",
   "block.rainrot.gourmand_slug_plush": "The Gourmand",
