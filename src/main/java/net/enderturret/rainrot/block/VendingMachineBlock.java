@@ -3,6 +3,8 @@ package net.enderturret.rainrot.block;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.Holder;
+import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.ItemInteractionResult;
@@ -28,6 +30,8 @@ import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
 
+import net.enderturret.rainrot.RainRot;
+import net.enderturret.rainrot.RainRotConfig;
 import net.enderturret.rainrot.init.RItems;
 import net.enderturret.rainrot.init.RSoundEvents;
 
@@ -145,14 +149,36 @@ public final class VendingMachineBlock extends WaterloggableHorizontalDirectiona
 		builder.add(HALF);
 	}
 
-	private static final Holder<Item> CURRENCY = RItems.DATA_PEARL;
-	private static final int CURRENCY_COUNT = 1;
-
 	@Override
 	protected ItemInteractionResult useItemOn(ItemStack stack, BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand, BlockHitResult hitResult) {
 		if (state.getValue(HALF) != DoubleBlockHalf.UPPER) return ItemInteractionResult.PASS_TO_DEFAULT_BLOCK_INTERACTION;
-		if (stack.getItem() != CURRENCY.value() || stack.getCount() < CURRENCY_COUNT) return ItemInteractionResult.PASS_TO_DEFAULT_BLOCK_INTERACTION;
 		if (hitResult.getDirection() != state.getValue(FACING)) return ItemInteractionResult.PASS_TO_DEFAULT_BLOCK_INTERACTION;
+
+		final String fullCurrency = RainRotConfig.vendingMachineCurrency();
+		final int commaIdx = fullCurrency.indexOf(',');
+		if (commaIdx == -1) {
+			RainRot.LOGGER.warn("Malformed currency: {} (missing count separator)", fullCurrency);
+			return ItemInteractionResult.PASS_TO_DEFAULT_BLOCK_INTERACTION;
+		}
+
+		final String currencyRawId = fullCurrency.substring(0, commaIdx);
+		final ResourceLocation currencyId = ResourceLocation.tryParse(currencyRawId);
+		if (currencyId == null) {
+			RainRot.LOGGER.warn("Malformed currency: {} (invalid item ID)", fullCurrency);
+			return ItemInteractionResult.PASS_TO_DEFAULT_BLOCK_INTERACTION;
+		}
+		final Item item = BuiltInRegistries.ITEM.get(currencyId);
+
+		final String currencyRawCount = fullCurrency.substring(commaIdx + 1);
+		final int currencyCount;
+		try {
+			currencyCount = Integer.parseInt(currencyRawCount);
+		} catch (NumberFormatException e) {
+			RainRot.LOGGER.warn("Malformed currency: {} (invalid item count)", fullCurrency);
+			return ItemInteractionResult.PASS_TO_DEFAULT_BLOCK_INTERACTION;
+		}
+
+		if (stack.getItem() != item || stack.getCount() < currencyCount) return ItemInteractionResult.PASS_TO_DEFAULT_BLOCK_INTERACTION;
 
 		if (level.isClientSide) return ItemInteractionResult.SUCCESS;
 
@@ -163,7 +189,7 @@ public final class VendingMachineBlock extends WaterloggableHorizontalDirectiona
 		};
 		final ItemStack pebbsi = new ItemStack(pick);
 		if (player.addItem(pebbsi)) {
-			stack.shrink(CURRENCY_COUNT);
+			stack.shrink(currencyCount);
 			level.playSound(null, pos, RSoundEvents.VENDING_MACHINE_DISPENSE.value(), SoundSource.PLAYERS, 1, 0.9F + 0.15F * level.random.nextFloat());
 			return ItemInteractionResult.SUCCESS;
 		}
