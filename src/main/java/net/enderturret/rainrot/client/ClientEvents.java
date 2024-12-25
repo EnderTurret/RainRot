@@ -24,12 +24,11 @@ public final class ClientEvents {
 
 	@SubscribeEvent
 	static void registerItemColors(RegisterColorHandlersEvent.Item e) {
-		e.register((stack, index) -> 0xFF000000 | stack.getOrDefault(RDataComponents.COLOR, 0xFFFFFF), RItems.DATA_PEARL.value());
+		e.register((stack, index) -> 0xFF000000 | RDataComponents.getColor(stack), RItems.DATA_PEARL.get());
 	}
 
-	@SubscribeEvent
-	static void registerExtensions(RegisterClientExtensionsEvent e) {
-		e.registerItem(new IClientItemExtensions() {
+	public static IClientItemExtensions getSolutionExtensions() {
+		return new IClientItemExtensions() {
 			@Override
 			public boolean applyForgeHandTransform(PoseStack poseStack, LocalPlayer player, HumanoidArm arm, ItemStack itemInHand, float partialTick, float equipProcess, float swingProcess) {
 				poseStack.translate(-0.038, -0.038, -0.7);
@@ -37,6 +36,6 @@ public final class ClientEvents {
 				poseStack.scale(0.25f, 0.25f, 0.25f);
 				return true;
 			}
-		}, RItems.SOLUTION);
+		};
 	}
 }

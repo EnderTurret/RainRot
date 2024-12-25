@@ -10,6 +10,7 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.Style;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.damagesource.DamageType;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
@@ -145,7 +146,7 @@ public final class ZapperBlock extends RotatedPillarBlock {
 	@SuppressWarnings("deprecation")
 	public void entityInside(BlockState state, Level level, BlockPos pos, Entity entity) {
 		if (entity instanceof LivingEntity living && state.getValue(POWERED)) {
-			living.hurt(living.damageSources().source(TRANSFORM_ARRAY), 2);
+			living.hurt(new DamageSource(level.registryAccess().registryOrThrow(Registries.DAMAGE_TYPE).getHolderOrThrow(TRANSFORM_ARRAY)), 2);
 		}
 	}
 
