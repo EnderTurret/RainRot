@@ -1,27 +1,9 @@
 package net.enderturret.rainrot.init;
 
-import com.mojang.serialization.Codec;
-import com.mojang.serialization.DataResult;
-
-import net.minecraft.core.component.DataComponentType;
-import net.minecraft.core.registries.BuiltInRegistries;
-import net.minecraft.network.codec.ByteBufCodecs;
-
-import net.neoforged.neoforge.registries.DeferredHolder;
-import net.neoforged.neoforge.registries.DeferredRegister;
-
-import net.enderturret.rainrot.RainRot;
-import net.enderturret.rainrot.item.FivePebbsiItem;
+import net.minecraft.nbt.Tag;
+import net.minecraft.world.item.ItemStack;
 
 public final class RDataComponents {
-
-	public static final DeferredRegister<DataComponentType<?>> REGISTRY = DeferredRegister.create(BuiltInRegistries.DATA_COMPONENT_TYPE, RainRot.MOD_ID);
-
-	public static final DeferredHolder<DataComponentType<?>, DataComponentType<FivePebbsiItem.Reviews>> PEBBSI_REVIEWS = REGISTRY.register("reviews", () ->
-			new DataComponentType.Builder<FivePebbsiItem.Reviews>()
-			.persistent(FivePebbsiItem.Reviews.CODEC)
-			.networkSynchronized(FivePebbsiItem.Reviews.STREAM_CODEC)
-			.build());
 
 	private static String trim(String str) {
 		if (str.startsWith("#"))
@@ -32,25 +14,27 @@ public final class RDataComponents {
 		return str;
 	}
 
-	private static final Codec<Integer> COLOR_FROM_STRING_CODEC = Codec.STRING
-			.validate(str -> {
-				final String trimmed = trim(str);
-				if (trimmed.length() > 6)
-					return DataResult.error(() -> "Input string too long");
+	private static int parseColor(String input) {
+		final String trimmed = trim(input);
+		if (trimmed.length() > 6)
+			return 0xFFFFFF;
 
-				try {
-					Integer.parseUnsignedInt(trimmed, 16);
-				} catch (NumberFormatException e) {
-					return DataResult.error(() -> "Not a hexadecimal number: " + trimmed);
-				}
+		try {
+			return Integer.parseUnsignedInt(trimmed, 16);
+		} catch (NumberFormatException e) {
+			return 0xFFFFFF;
+		}
+	}
 
-				return DataResult.success(str);
-			})
-			.xmap(str -> Integer.parseUnsignedInt(trim(str), 16), i -> Integer.toString(i));
+	public static int getColor(ItemStack stack) {
+		if (!stack.hasTag()) return 0xFFFFFF;
 
-	public static final DeferredHolder<DataComponentType<?>, DataComponentType<Integer>> COLOR = REGISTRY.register("color", () ->
-			new DataComponentType.Builder<Integer>()
-			.persistent(Codec.withAlternative(Codec.INT, COLOR_FROM_STRING_CODEC))
-			.networkSynchronized(ByteBufCodecs.VAR_INT)
-			.build());
+		if (stack.getTag().contains("rainrot:color", Tag.TAG_ANY_NUMERIC))
+			return stack.getTag().getInt("rainrot:color");
+
+		if (stack.getTag().contains("rainrot:color", Tag.TAG_STRING))
+			return parseColor(stack.getTag().getString("rainrot:color"));
+
+		return 0xFFFFFF;
+	}
 }

@@ -8,7 +8,6 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.Style;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
-import net.minecraft.world.item.Item.TooltipContext;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.shapes.CollisionContext;
@@ -60,12 +59,14 @@ public final class TunnelBlock extends WaterloggableHorizontalDirectionalBlock {
 	}
 
 	@Override
-	protected VoxelShape getShape(BlockState state, BlockGetter level, BlockPos pos, CollisionContext context) {
+	@SuppressWarnings("deprecation")
+	public VoxelShape getShape(BlockState state, BlockGetter level, BlockPos pos, CollisionContext context) {
 		return COMPLEX_AABB[state.getValue(FACING).get2DDataValue()];
 	}
 
 	@Override
-	protected VoxelShape getCollisionShape(BlockState state, BlockGetter level, BlockPos pos, CollisionContext context) {
+	@SuppressWarnings("deprecation")
+	public VoxelShape getCollisionShape(BlockState state, BlockGetter level, BlockPos pos, CollisionContext context) {
 		if (context.isDescending())
 			return COLLISION_AABB[state.getValue(FACING).get2DDataValue()];
 
@@ -73,7 +74,7 @@ public final class TunnelBlock extends WaterloggableHorizontalDirectionalBlock {
 	}
 
 	@Override
-	public void appendHoverText(ItemStack stack, TooltipContext context, List<Component> tooltipComponents, TooltipFlag tooltipFlag) {
+	public void appendHoverText(ItemStack stack, BlockGetter level, List<Component> tooltipComponents, TooltipFlag tooltipFlag) {
 		tooltipComponents.add(Component.translatable("block.rainrot.tunnel.instructions").setStyle(Style.EMPTY.withItalic(true).withColor(ChatFormatting.GRAY)));
 	}
 }

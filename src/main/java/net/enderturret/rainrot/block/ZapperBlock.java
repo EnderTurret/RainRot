@@ -15,7 +15,6 @@ import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
-import net.minecraft.world.item.Item.TooltipContext;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
@@ -64,7 +63,8 @@ public final class ZapperBlock extends RotatedPillarBlock {
 	}
 
 	@Override
-	protected VoxelShape getShape(BlockState state, BlockGetter level, BlockPos pos, CollisionContext context) {
+	@SuppressWarnings("deprecation")
+	public VoxelShape getShape(BlockState state, BlockGetter level, BlockPos pos, CollisionContext context) {
 		final int index = state.getValue(PART).ordinal();
 		return switch (state.getValue(AXIS)) {
 			case X -> X_SHAPES[index];
@@ -80,7 +80,8 @@ public final class ZapperBlock extends RotatedPillarBlock {
 	}
 
 	@Override
-	protected void neighborChanged(BlockState state, Level level, BlockPos pos, Block neighborBlock, BlockPos neighborPos, boolean movedByPiston) {
+	@SuppressWarnings("deprecation")
+	public void neighborChanged(BlockState state, Level level, BlockPos pos, Block neighborBlock, BlockPos neighborPos, boolean movedByPiston) {
 		if (state.getValue(PART) != TripleBlockPart.BOTTOM) return;
 
 		final Direction.Axis axis = state.getValue(AXIS);
@@ -141,14 +142,15 @@ public final class ZapperBlock extends RotatedPillarBlock {
 	private static final ResourceKey<DamageType> TRANSFORM_ARRAY = ResourceKey.create(Registries.DAMAGE_TYPE, ResourceLocation.fromNamespaceAndPath(RainRot.MOD_ID, "transform_array"));
 
 	@Override
-	protected void entityInside(BlockState state, Level level, BlockPos pos, Entity entity) {
+	@SuppressWarnings("deprecation")
+	public void entityInside(BlockState state, Level level, BlockPos pos, Entity entity) {
 		if (entity instanceof LivingEntity living && state.getValue(POWERED)) {
 			living.hurt(living.damageSources().source(TRANSFORM_ARRAY), 2);
 		}
 	}
 
 	@Override
-	public void appendHoverText(ItemStack stack, TooltipContext context, List<Component> tooltipComponents, TooltipFlag tooltipFlag) {
+	public void appendHoverText(ItemStack stack, BlockGetter level, List<Component> tooltipComponents, TooltipFlag tooltipFlag) {
 		tooltipComponents.add(Component.translatable("block.rainrot.zapper.instructions").setStyle(Style.EMPTY.withItalic(true).withColor(ChatFormatting.GRAY)));
 	}
 }

@@ -1,7 +1,5 @@
 package net.enderturret.rainrot.block;
 
-import com.mojang.serialization.MapCodec;
-
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.world.item.context.BlockPlaceContext;
@@ -25,11 +23,6 @@ public abstract class WaterloggableHorizontalDirectionalBlock extends Horizontal
 	}
 
 	@Override
-	protected MapCodec<? extends HorizontalDirectionalBlock> codec() {
-		throw new AssertionError();
-	}
-
-	@Override
 	public BlockState getStateForPlacement(BlockPlaceContext ctx) {
 		return super.getStateForPlacement(ctx)
 				.setValue(FACING, ctx.getHorizontalDirection().getOpposite())
@@ -37,7 +30,8 @@ public abstract class WaterloggableHorizontalDirectionalBlock extends Horizontal
 	}
 
 	@Override
-	protected BlockState updateShape(BlockState state, Direction direction, BlockState neighborState, LevelAccessor level, BlockPos currentPos, BlockPos neighborPos) {
+	@SuppressWarnings("deprecation")
+	public BlockState updateShape(BlockState state, Direction direction, BlockState neighborState, LevelAccessor level, BlockPos currentPos, BlockPos neighborPos) {
 		if (state.getValue(WATERLOGGED))
 			level.scheduleTick(currentPos, Fluids.WATER, Fluids.WATER.getTickDelay(level));
 
@@ -45,7 +39,8 @@ public abstract class WaterloggableHorizontalDirectionalBlock extends Horizontal
 	}
 
 	@Override
-	protected FluidState getFluidState(BlockState state) {
+	@SuppressWarnings("deprecation")
+	public FluidState getFluidState(BlockState state) {
 		return state.getValue(WATERLOGGED) ? Fluids.WATER.getSource(false) : Fluids.EMPTY.defaultFluidState();
 	}
 

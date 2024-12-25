@@ -7,14 +7,14 @@ import java.util.function.Consumer;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
-import net.minecraft.core.Holder;
-import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.ItemLike;
 
-import net.neoforged.neoforge.registries.DeferredRegister;
+import net.minecraftforge.registries.DeferredRegister;
+import net.minecraftforge.registries.RegistryObject;
 
 import net.enderturret.rainrot.RainRot;
 import net.enderturret.rainrot.item.FivePebbsiItem;
@@ -47,16 +47,17 @@ public final class RTab {
 				options.removeByte(rand.nextInt(options.size() - 1)));
 	}
 
-	public static final DeferredRegister<CreativeModeTab> REGISTRY = DeferredRegister.create(BuiltInRegistries.CREATIVE_MODE_TAB, RainRot.MOD_ID);
+	public static final DeferredRegister<CreativeModeTab> REGISTRY = DeferredRegister.create(Registries.CREATIVE_MODE_TAB, RainRot.MOD_ID);
 
-	public static final Holder<CreativeModeTab> INSTANCE = REGISTRY.register("tab", () -> CreativeModeTab.builder().title(Component.translatable("itemGroup.rainrot"))
+	public static final RegistryObject<CreativeModeTab> INSTANCE = REGISTRY.register("tab", () -> CreativeModeTab.builder()
+			.title(Component.translatable("itemGroup.rainrot"))
 			.icon(() -> get(SOLUTION))
 			.displayItems((params, output) -> {
 				addAll(output, MEMORY_CONFLAKES, BOWL_OF_MEMORY_CONFLAKES, BOWL_OF_UNFORTUNATE_DEVELOPMENT);
 
-				output.accept(get(FIVE_PEBBSI_CLASSIC, stack -> stack.set(RDataComponents.PEBBSI_REVIEWS, CURRENT_SESSION_FIVEPEBBSI_REVIEWS_1)));
-				output.accept(get(FIVE_PEBBSI_CRYSTAL, stack -> stack.set(RDataComponents.PEBBSI_REVIEWS, CURRENT_SESSION_FIVEPEBBSI_REVIEWS_2)));
-				output.accept(get(FIVE_PEBBSI_RUBICON, stack -> stack.set(RDataComponents.PEBBSI_REVIEWS, CURRENT_SESSION_FIVEPEBBSI_REVIEWS_3)));
+				output.accept(get(FIVE_PEBBSI_CLASSIC, stack -> FivePebbsiItem.set(stack, CURRENT_SESSION_FIVEPEBBSI_REVIEWS_1)));
+				output.accept(get(FIVE_PEBBSI_CRYSTAL, stack -> FivePebbsiItem.set(stack, CURRENT_SESSION_FIVEPEBBSI_REVIEWS_2)));
+				output.accept(get(FIVE_PEBBSI_RUBICON, stack -> FivePebbsiItem.set(stack, CURRENT_SESSION_FIVEPEBBSI_REVIEWS_3)));
 
 				addAll(output, DATA_PEARL);
 
@@ -72,17 +73,17 @@ public final class RTab {
 			})
 			.build());
 
-	private static void addAll(CreativeModeTab.Output output, Holder<? extends ItemLike>... items) {
+	private static void addAll(CreativeModeTab.Output output, RegistryObject<? extends ItemLike>... items) {
 		for (var item : items)
 			output.accept(get(item));
 	}
 
-	private static ItemStack get(Holder<? extends ItemLike> item) {
+	private static ItemStack get(RegistryObject<? extends ItemLike> item) {
 		return get(item, stack -> {});
 	}
 
-	private static ItemStack get(Holder<? extends ItemLike> item, Consumer<ItemStack> configurer) {
-		final ItemStack ret = new ItemStack(item.value());
+	private static ItemStack get(RegistryObject<? extends ItemLike> item, Consumer<ItemStack> configurer) {
+		final ItemStack ret = new ItemStack(item.get());
 		configurer.accept(ret);
 		return ret;
 	}

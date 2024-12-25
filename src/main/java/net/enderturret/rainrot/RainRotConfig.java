@@ -1,21 +1,21 @@
 package net.enderturret.rainrot;
 
-import net.neoforged.neoforge.common.ModConfigSpec;
+import net.minecraftforge.common.ForgeConfigSpec;
 
 public final class RainRotConfig {
 
-	static final ModConfigSpec SPEC;
+	static final ForgeConfigSpec SPEC;
 	private static final RainRotConfig CONFIG;
 
 	static {
-		final var pair = new ModConfigSpec.Builder().configure(RainRotConfig::new);
+		final var pair = new ForgeConfigSpec.Builder().configure(RainRotConfig::new);
 		SPEC = pair.getRight();
 		CONFIG = pair.getLeft();
 	}
 
-	private final ModConfigSpec.ConfigValue<String> vendingMachineCurrency;
+	private final ForgeConfigSpec.ConfigValue<String> vendingMachineCurrency;
 
-	private RainRotConfig(ModConfigSpec.Builder builder) {
+	private RainRotConfig(ForgeConfigSpec.Builder builder) {
 		vendingMachineCurrency = builder.comment(
 				"The currency accepted for the Five Pebbsi Vending Machine.",
 				"This config option must be in the format '<item id>,<count>'.",

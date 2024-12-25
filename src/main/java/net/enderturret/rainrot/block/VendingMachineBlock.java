@@ -5,20 +5,17 @@ import java.util.List;
 import net.minecraft.ChatFormatting;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
-import net.minecraft.core.Holder;
-import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.Style;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.InteractionHand;
-import net.minecraft.world.ItemInteractionResult;
+import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
-import net.minecraft.world.item.Item.TooltipContext;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
@@ -36,6 +33,9 @@ import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
+
+import net.minecraftforge.registries.ForgeRegistries;
+import net.minecraftforge.registries.RegistryObject;
 
 import net.enderturret.rainrot.RainRot;
 import net.enderturret.rainrot.RainRotConfig;
@@ -94,7 +94,8 @@ public final class VendingMachineBlock extends WaterloggableHorizontalDirectiona
 	}
 
 	@Override
-	protected VoxelShape getShape(BlockState state, BlockGetter level, BlockPos pos, CollisionContext context) {
+	@SuppressWarnings("deprecation")
+	public VoxelShape getShape(BlockState state, BlockGetter level, BlockPos pos, CollisionContext context) {
 		final int facing = state.getValue(FACING).get2DDataValue();
 		return state.getValue(HALF) == DoubleBlockHalf.UPPER ? TOP_AABB[facing] : BOTTOM_AABB[facing];
 	}
@@ -110,8 +111,8 @@ public final class VendingMachineBlock extends WaterloggableHorizontalDirectiona
 	}
 
 	@Override
-	public BlockState playerWillDestroy(Level level, BlockPos pos, BlockState state, Player player) {
-		if (!level.isClientSide && (player.isCreative() || !player.hasCorrectToolForDrops(state, level, pos))) {
+	public void playerWillDestroy(Level level, BlockPos pos, BlockState state, Player player) {
+		if (!level.isClientSide && (player.isCreative() || !player.hasCorrectToolForDrops(state))) {
 			if (state.getValue(HALF) == DoubleBlockHalf.UPPER) {
 				final BlockPos neighborPos = pos.below();
 				final BlockState neighborState = level.getBlockState(neighborPos);
@@ -123,7 +124,7 @@ public final class VendingMachineBlock extends WaterloggableHorizontalDirectiona
 			}
 		}
 
-		return super.playerWillDestroy(level, pos, state, player);
+		super.playerWillDestroy(level, pos, state, player);
 	}
 
 	@Override
@@ -144,7 +145,8 @@ public final class VendingMachineBlock extends WaterloggableHorizontalDirectiona
 	}
 
 	@Override
-	protected boolean canSurvive(BlockState state, LevelReader level, BlockPos pos) {
+	@SuppressWarnings("deprecation")
+	public boolean canSurvive(BlockState state, LevelReader level, BlockPos pos) {
 		final BlockPos lowerPos = pos.below();
 		final BlockState lowerState = level.getBlockState(lowerPos);
 		return state.getValue(HALF) == DoubleBlockHalf.LOWER ? lowerState.isFaceSturdy(level, lowerPos, Direction.UP) : lowerState.is(this);
@@ -157,24 +159,27 @@ public final class VendingMachineBlock extends WaterloggableHorizontalDirectiona
 	}
 
 	@Override
-	protected ItemInteractionResult useItemOn(ItemStack stack, BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand, BlockHitResult hitResult) {
-		if (state.getValue(HALF) != DoubleBlockHalf.UPPER) return ItemInteractionResult.PASS_TO_DEFAULT_BLOCK_INTERACTION;
-		if (hitResult.getDirection() != state.getValue(FACING)) return ItemInteractionResult.PASS_TO_DEFAULT_BLOCK_INTERACTION;
+	@SuppressWarnings("deprecation")
+	public InteractionResult use(BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand, BlockHitResult hitResult) {
+		final ItemStack stack = player.getItemInHand(hand);
+		if (stack.isEmpty()) return InteractionResult.PASS;
+		if (state.getValue(HALF) != DoubleBlockHalf.UPPER) return InteractionResult.PASS;
+		if (hitResult.getDirection() != state.getValue(FACING)) return InteractionResult.PASS;
 
 		final String fullCurrency = RainRotConfig.vendingMachineCurrency();
 		final int commaIdx = fullCurrency.indexOf(',');
 		if (commaIdx == -1) {
 			RainRot.LOGGER.warn("Malformed currency: {} (missing count separator)", fullCurrency);
-			return ItemInteractionResult.PASS_TO_DEFAULT_BLOCK_INTERACTION;
+			return InteractionResult.PASS;
 		}
 
 		final String currencyRawId = fullCurrency.substring(0, commaIdx);
 		final ResourceLocation currencyId = ResourceLocation.tryParse(currencyRawId);
 		if (currencyId == null) {
 			RainRot.LOGGER.warn("Malformed currency: {} (invalid item ID)", fullCurrency);
-			return ItemInteractionResult.PASS_TO_DEFAULT_BLOCK_INTERACTION;
+			return InteractionResult.PASS;
 		}
-		final Item item = BuiltInRegistries.ITEM.get(currencyId);
+		final Item item = ForgeRegistries.ITEMS.getValue(currencyId);
 
 		final String currencyRawCount = fullCurrency.substring(commaIdx + 1);
 		final int currencyCount;
@@ -182,30 +187,30 @@ public final class VendingMachineBlock extends WaterloggableHorizontalDirectiona
 			currencyCount = Integer.parseInt(currencyRawCount);
 		} catch (NumberFormatException e) {
 			RainRot.LOGGER.warn("Malformed currency: {} (invalid item count)", fullCurrency);
-			return ItemInteractionResult.PASS_TO_DEFAULT_BLOCK_INTERACTION;
+			return InteractionResult.PASS;
 		}
 
-		if (stack.getItem() != item || stack.getCount() < currencyCount) return ItemInteractionResult.PASS_TO_DEFAULT_BLOCK_INTERACTION;
+		if (stack.getItem() != item || stack.getCount() < currencyCount) return InteractionResult.PASS;
 
-		if (level.isClientSide) return ItemInteractionResult.SUCCESS;
+		if (level.isClientSide) return InteractionResult.SUCCESS;
 
-		final Holder<Item> pick = switch (player.getRandom().nextInt(3)) {
+		final RegistryObject<Item> pick = switch (player.getRandom().nextInt(3)) {
 			default -> RItems.FIVE_PEBBSI_CLASSIC;
 			case 1 -> RItems.FIVE_PEBBSI_CRYSTAL;
 			case 2 -> RItems.FIVE_PEBBSI_RUBICON;
 		};
-		final ItemStack pebbsi = new ItemStack(pick);
+		final ItemStack pebbsi = new ItemStack(pick.get());
 		if (player.addItem(pebbsi)) {
 			stack.shrink(currencyCount);
-			level.playSound(null, pos, RSoundEvents.VENDING_MACHINE_DISPENSE.value(), SoundSource.PLAYERS, 1, 0.9F + 0.15F * level.random.nextFloat());
-			return ItemInteractionResult.SUCCESS;
+			level.playSound(null, pos, RSoundEvents.VENDING_MACHINE_DISPENSE.get(), SoundSource.PLAYERS, 1, 0.9F + 0.15F * level.random.nextFloat());
+			return InteractionResult.SUCCESS;
 		}
 
-		return ItemInteractionResult.PASS_TO_DEFAULT_BLOCK_INTERACTION;
+		return super.use(state, level, pos, player, hand, hitResult);
 	}
 
 	@Override
-	public void appendHoverText(ItemStack stack, TooltipContext context, List<Component> tooltipComponents, TooltipFlag tooltipFlag) {
+	public void appendHoverText(ItemStack stack, BlockGetter level, List<Component> tooltipComponents, TooltipFlag tooltipFlag) {
 		tooltipComponents.add(Component.translatable("block.rainrot.five_pebbsi_vending_machine.instructions").setStyle(Style.EMPTY.withItalic(true).withColor(ChatFormatting.GRAY)));
 	}
 }

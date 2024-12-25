@@ -1,6 +1,7 @@
 package net.enderturret.rainrot.block;
 
 import net.minecraft.core.BlockPos;
+import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
@@ -20,13 +21,14 @@ public final class InvPlushieBlock extends SlugPlushieBlock {
 	}
 
 	@Override
-	protected InteractionResult useWithoutItem(BlockState state, Level level, BlockPos pos, Player player, BlockHitResult hitResult) {
+	@SuppressWarnings("deprecation")
+	public InteractionResult use(BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand, BlockHitResult hit) {
 		if (player.isCrouching()) {
 			level.setBlock(pos, state.cycle(CURSED), UPDATE_ALL);
 			return InteractionResult.SUCCESS;
 		}
 
-		return super.useWithoutItem(state, level, pos, player, hitResult);
+		return super.use(state, level, pos, player, hand, hit);
 	}
 
 	@Override

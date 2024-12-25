@@ -23,7 +23,8 @@ public final class IteratorPlushieBlock extends WaterloggableHorizontalDirection
 	}
 
 	@Override
-	protected VoxelShape getShape(BlockState state, BlockGetter level, BlockPos pos, CollisionContext context) {
+	@SuppressWarnings("deprecation")
+	public VoxelShape getShape(BlockState state, BlockGetter level, BlockPos pos, CollisionContext context) {
 		return AABB[state.getValue(FACING).get2DDataValue()];
 	}
 }
