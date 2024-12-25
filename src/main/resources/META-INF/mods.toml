@@ -16,15 +16,15 @@ issueTrackerURL="https://github.com/EnderTurret/RainRot/issues"
     logoFile="icon.png"
 
 [[dependencies.rainrot]]
-    modId="neoforge"
-    type="required"
-    versionRange="[21.1,21.2)"
+    modId="forge"
+    mandatory=true
+    versionRange="[47,48)"
     ordering="NONE"
     side="BOTH"
 
 [[dependencies.rainrot]]
     modId="minecraft"
-    type="required"
-    versionRange="[1.21,1.21.2)"
+    mandatory=true
+    versionRange="[1.20,1.20.2)"
     ordering="NONE"
     side="BOTH"
