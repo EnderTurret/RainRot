@@ -4,10 +4,10 @@
     "CB"
   ],
   "key": {
-    "C": { "item": "contentsmp:memory_conflakes" },
+    "C": { "item": "rainrot:memory_conflakes" },
     "B": { "item": "minecraft:bowl" }
   },
   "result": {
-    "id": "contentsmp:bowl_of_memory_conflakes"
+    "id": "rainrot:bowl_of_memory_conflakes"
   }
 }
