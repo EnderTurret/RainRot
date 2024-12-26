@@ -11,6 +11,7 @@ import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 
 import net.enderturret.rainrot.init.RBlocks;
 import net.enderturret.rainrot.init.RItems;
+import net.enderturret.rainrot.init.RPaintingVariants;
 import net.enderturret.rainrot.init.RSoundEvents;
 import net.enderturret.rainrot.init.RTab;
 
@@ -28,5 +29,6 @@ public final class RainRot {
 		RBlocks.REGISTRY.register(modBus);
 		RTab.REGISTRY.register(modBus);
 		RSoundEvents.REGISTRY.register(modBus);
+		RPaintingVariants.REGISTRY.register(modBus);
 	}
 }
