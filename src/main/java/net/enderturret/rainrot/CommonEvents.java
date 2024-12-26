@@ -24,7 +24,7 @@ public final class CommonEvents {
 	@SubscribeEvent(priority = EventPriority.HIGHEST)
 	static void onAttackEntity(AttackEntityEvent e) {
 		final Player player = e.getEntity();
-		if (player.getUseItem().getItem() instanceof SolutionItem && e.getTarget() instanceof LivingEntity living) {
+		if (player.getMainHandItem().getItem() instanceof SolutionItem && e.getTarget() instanceof LivingEntity living) {
 			e.setCanceled(true);
 			final boolean first = player.getRandom().nextInt(4) != 0;
 			living.hurt(new DamageSource(
