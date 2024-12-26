@@ -7,13 +7,13 @@
   ],
   "key": {
     "W": {
-      "item": "minecraft:brown_wool"
+      "item": "minecraft:lime_wool"
     },
     "M": {
-      "item": "minecraft:pumpkin_pie"
+      "item": "minecraft:snowball"
     }
   },
   "result": {
-    "id": "rainrot:gourmand_slug_plush"
+    "item": "rainrot:saint_slug_plush"
   }
 }

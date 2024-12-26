@@ -7,13 +7,13 @@
   ],
   "key": {
     "W": {
-      "item": "minecraft:lime_wool"
+      "item": "minecraft:yellow_wool"
     },
     "M": {
-      "item": "minecraft:snowball"
+      "item": "minecraft:sweet_berries"
     }
   },
   "result": {
-    "id": "rainrot:saint_slug_plush"
+    "item": "rainrot:monk_slug_plush"
   }
 }

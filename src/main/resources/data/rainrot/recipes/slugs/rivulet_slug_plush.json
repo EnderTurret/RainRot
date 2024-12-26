@@ -10,10 +10,10 @@
       "item": "minecraft:light_blue_wool"
     },
     "M": {
-      "item": "minecraft:water_bucket"
+      "item": "minecraft:heart_of_the_sea"
     }
   },
   "result": {
-    "id": "rainrot:looks_to_the_moon_plush"
+    "item": "rainrot:rivulet_slug_plush"
   }
 }

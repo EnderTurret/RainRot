@@ -7,13 +7,13 @@
   ],
   "key": {
     "W": {
-      "item": "minecraft:light_blue_wool"
+      "item": "minecraft:black_wool"
     },
     "M": {
-      "item": "minecraft:heart_of_the_sea"
+      "item": "minecraft:emerald"
     }
   },
   "result": {
-    "id": "rainrot:rivulet_slug_plush"
+    "item": "rainrot:watcher_slug_plush"
   }
 }

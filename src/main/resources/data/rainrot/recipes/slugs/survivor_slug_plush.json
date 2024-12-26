@@ -7,13 +7,13 @@
   ],
   "key": {
     "W": {
-      "item": "minecraft:red_wool"
+      "item": "minecraft:white_wool"
     },
     "M": {
-      "item": "minecraft:tnt"
+      "item": "minecraft:cobblestone"
     }
   },
   "result": {
-    "id": "rainrot:artificer_slug_plush"
+    "item": "rainrot:survivor_slug_plush"
   }
 }

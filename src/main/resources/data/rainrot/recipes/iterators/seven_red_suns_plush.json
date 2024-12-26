@@ -7,13 +7,13 @@
   ],
   "key": {
     "W": {
-      "item": "minecraft:black_wool"
+      "item": "minecraft:orange_wool"
     },
     "M": {
-      "item": "rainrot:sliver_of_straw_plush"
+      "item": "minecraft:glowstone"
     }
   },
   "result": {
-    "id": "rainrot:inv_slug_plush"
+    "item": "rainrot:seven_red_suns_plush"
   }
 }

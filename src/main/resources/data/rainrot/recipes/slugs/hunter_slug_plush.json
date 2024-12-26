@@ -7,13 +7,13 @@
   ],
   "key": {
     "W": {
-      "item": "minecraft:green_wool"
+      "item": "minecraft:red_wool"
     },
     "M": {
-      "item": "minecraft:tripwire_hook"
+      "item": "minecraft:mutton"
     }
   },
   "result": {
-    "id": "rainrot:no_significant_harassment_plush"
+    "item": "rainrot:hunter_slug_plush"
   }
 }

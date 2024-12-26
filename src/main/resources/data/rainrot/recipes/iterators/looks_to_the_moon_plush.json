@@ -7,13 +7,13 @@
   ],
   "key": {
     "W": {
-      "item": "minecraft:yellow_wool"
+      "item": "minecraft:light_blue_wool"
     },
     "M": {
-      "item": "minecraft:sweet_berries"
+      "item": "minecraft:water_bucket"
     }
   },
   "result": {
-    "id": "rainrot:monk_slug_plush"
+    "item": "rainrot:looks_to_the_moon_plush"
   }
 }

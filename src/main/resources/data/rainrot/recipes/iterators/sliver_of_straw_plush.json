@@ -2,18 +2,18 @@
   "type": "minecraft:crafting_shaped",
   "pattern": [
     "WWW",
-    "WMW",
+    "WSW",
     "WWW"
   ],
   "key": {
     "W": {
-      "item": "minecraft:purple_wool"
+      "item": "minecraft:white_wool"
     },
-    "M": {
-      "item": "minecraft:stick"
+    "S": {
+      "item": "minecraft:nether_star"
     }
   },
   "result": {
-    "id": "rainrot:spearmaster_slug_plush"
+    "item": "rainrot:sliver_of_straw_plush"
   }
 }

@@ -7,13 +7,13 @@
   ],
   "key": {
     "W": {
-      "item": "minecraft:black_wool"
+      "item": "minecraft:green_wool"
     },
     "M": {
-      "item": "minecraft:emerald"
+      "item": "minecraft:tripwire_hook"
     }
   },
   "result": {
-    "id": "rainrot:watcher_slug_plush"
+    "item": "rainrot:no_significant_harassment_plush"
   }
 }

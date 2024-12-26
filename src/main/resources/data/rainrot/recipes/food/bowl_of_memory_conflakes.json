@@ -8,6 +8,6 @@
     "B": { "item": "minecraft:bowl" }
   },
   "result": {
-    "id": "contentsmp:bowl_of_memory_conflakes"
+    "item": "contentsmp:bowl_of_memory_conflakes"
   }
 }

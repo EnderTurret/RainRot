@@ -7,13 +7,13 @@
   ],
   "key": {
     "W": {
-      "item": "minecraft:red_wool"
+      "item": "minecraft:black_wool"
     },
     "M": {
-      "item": "minecraft:mutton"
+      "item": "rainrot:sliver_of_straw_plush"
     }
   },
   "result": {
-    "id": "rainrot:hunter_slug_plush"
+    "item": "rainrot:inv_slug_plush"
   }
 }
