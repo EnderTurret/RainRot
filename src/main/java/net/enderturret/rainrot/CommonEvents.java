@@ -18,8 +18,8 @@ import net.enderturret.rainrot.item.SolutionItem;
 @EventBusSubscriber(modid = RainRot.MOD_ID, bus = EventBusSubscriber.Bus.FORGE)
 public final class CommonEvents {
 
-	private static final ResourceKey<DamageType> ASCENSION_1 = ResourceKey.create(Registries.DAMAGE_TYPE, ResourceLocation.fromNamespaceAndPath(RainRot.MOD_ID, "ascension1"));
-	private static final ResourceKey<DamageType> ASCENSION_2 = ResourceKey.create(Registries.DAMAGE_TYPE, ResourceLocation.fromNamespaceAndPath(RainRot.MOD_ID, "ascension2"));
+	private static final ResourceKey<DamageType> ASCENSION_1 = ResourceKey.create(Registries.DAMAGE_TYPE, new ResourceLocation(RainRot.MOD_ID, "ascension1"));
+	private static final ResourceKey<DamageType> ASCENSION_2 = ResourceKey.create(Registries.DAMAGE_TYPE, new ResourceLocation(RainRot.MOD_ID, "ascension2"));
 
 	@SubscribeEvent(priority = EventPriority.HIGHEST)
 	static void onAttackEntity(AttackEntityEvent e) {

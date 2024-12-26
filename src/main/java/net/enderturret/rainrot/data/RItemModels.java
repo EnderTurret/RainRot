@@ -29,7 +29,7 @@ public final class RItemModels extends ItemModelProvider {
 
 		basicItem(RItems.DATA_PEARL.get());
 
-		withExistingParent(RBlocks.ZAPPER.getKey().location().toString(), ResourceLocation.fromNamespaceAndPath(RainRot.MOD_ID, "block/zapper_bottom"));
+		withExistingParent(RBlocks.ZAPPER.getKey().location().toString(), new ResourceLocation(RainRot.MOD_ID, "block/zapper_bottom"));
 		simpleBlockItem(RBlocks.TUNNEL.get());
 
 		simpleBlockItem(RBlocks.ARTIFICER_SLUG_PLUSH.get());

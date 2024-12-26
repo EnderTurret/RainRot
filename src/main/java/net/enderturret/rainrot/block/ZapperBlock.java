@@ -140,7 +140,7 @@ public final class ZapperBlock extends RotatedPillarBlock {
 		return base;
 	}
 
-	private static final ResourceKey<DamageType> TRANSFORM_ARRAY = ResourceKey.create(Registries.DAMAGE_TYPE, ResourceLocation.fromNamespaceAndPath(RainRot.MOD_ID, "transform_array"));
+	private static final ResourceKey<DamageType> TRANSFORM_ARRAY = ResourceKey.create(Registries.DAMAGE_TYPE, new ResourceLocation(RainRot.MOD_ID, "transform_array"));
 
 	@Override
 	@SuppressWarnings("deprecation")
