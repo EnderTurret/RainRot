@@ -15,9 +15,14 @@ import net.minecraft.network.codec.StreamCodec;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
 
+import net.enderturret.rainrot.RainRotClientConfig;
+import net.enderturret.rainrot.Spoilable;
+import net.enderturret.rainrot.SpoilerTracker;
 import net.enderturret.rainrot.init.RDataComponents;
 
-public final class FivePebbsiItem extends DrinkItem {
+public final class FivePebbsiItem extends DrinkItem implements Spoilable {
+
+	protected final SpoilerTracker spoiler = new SpoilerTracker(RainRotClientConfig::spoilSecretSlug);
 
 	public FivePebbsiItem(Properties props) {
 		super(props);
@@ -28,7 +33,19 @@ public final class FivePebbsiItem extends DrinkItem {
 	}
 
 	@Override
+	public SpoilerTracker spoiler() {
+		return spoiler;
+	}
+
+	@Override
+	public String getDescriptionId() {
+		return spoiler.nameKey(super.getDescriptionId());
+	}
+
+	@Override
 	public void appendHoverText(ItemStack stack, TooltipContext context, List<Component> tooltip, TooltipFlag tooltipFlag) {
+		if (!spoiler.enabled()) return;
+
 		final Reviews reviews = get(stack);
 		final Style style = Style.EMPTY.withItalic(true).withColor(ChatFormatting.GRAY);
 		if (tooltipFlag.hasControlDown()) {

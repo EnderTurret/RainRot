@@ -1,12 +1,17 @@
 package net.enderturret.rainrot.block;
 
+import java.util.function.BooleanSupplier;
+
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
 
-public final class IteratorPlushieBlock extends WaterloggableHorizontalDirectionalBlock {
+import net.enderturret.rainrot.Spoilable;
+import net.enderturret.rainrot.SpoilerTracker;
+
+public final class IteratorPlushieBlock extends WaterloggableHorizontalDirectionalBlock implements Spoilable {
 
 	private static final VoxelShape[] AABB;
 
@@ -18,12 +23,25 @@ public final class IteratorPlushieBlock extends WaterloggableHorizontalDirection
 		AABB = new VoxelShape[] {bodyS, bodyW, bodyN, bodyE};
 	}
 
-	public IteratorPlushieBlock(Properties properties) {
+	protected final SpoilerTracker spoiler;
+
+	public IteratorPlushieBlock(Properties properties, BooleanSupplier spoilerConfig) {
 		super(properties);
+		spoiler = new SpoilerTracker(spoilerConfig);
 	}
 
 	@Override
 	protected VoxelShape getShape(BlockState state, BlockGetter level, BlockPos pos, CollisionContext context) {
 		return AABB[state.getValue(FACING).get2DDataValue()];
+	}
+
+	@Override
+	public SpoilerTracker spoiler() {
+		return spoiler;
+	}
+
+	@Override
+	public String getDescriptionId() {
+		return spoiler.nameKey(super.getDescriptionId());
 	}
 }

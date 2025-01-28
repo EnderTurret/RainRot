@@ -8,15 +8,21 @@ import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
 import net.minecraft.core.Holder;
+import net.minecraft.core.component.DataComponents;
 import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.component.CustomData;
 import net.minecraft.world.level.ItemLike;
+import net.minecraft.world.level.block.Blocks;
 
 import net.neoforged.neoforge.registries.DeferredRegister;
 
 import net.enderturret.rainrot.RainRot;
+import net.enderturret.rainrot.RainRotClientConfig;
+import net.enderturret.rainrot.Spoilable;
 import net.enderturret.rainrot.item.FivePebbsiItem;
 
 import it.unimi.dsi.fastutil.bytes.ByteArrayList;
@@ -50,9 +56,15 @@ public final class RTab {
 	public static final DeferredRegister<CreativeModeTab> REGISTRY = DeferredRegister.create(BuiltInRegistries.CREATIVE_MODE_TAB, RainRot.MOD_ID);
 
 	public static final Holder<CreativeModeTab> INSTANCE = REGISTRY.register("tab", () -> CreativeModeTab.builder().title(Component.translatable("itemGroup.rainrot"))
-			.icon(() -> get(SOLUTION))
+			.icon(() -> RainRotClientConfig.spoilSaint() ? get(SOLUTION) : get(DATA_PEARL))
 			.displayItems((params, output) -> {
-				addAll(output, MEMORY_CONFLAKES, BOWL_OF_MEMORY_CONFLAKES, BOWL_OF_UNFORTUNATE_DEVELOPMENT);
+				if (RainRotClientConfig.spoilBaseGame())
+					addAll(output, MEMORY_CONFLAKES, BOWL_OF_MEMORY_CONFLAKES, BOWL_OF_UNFORTUNATE_DEVELOPMENT);
+				else {
+					output.accept(hiddenItem(MEMORY_CONFLAKES));
+					output.accept(hiddenItem(BOWL_OF_MEMORY_CONFLAKES));
+					output.accept(hiddenItem(BOWL_OF_UNFORTUNATE_DEVELOPMENT));
+				}
 
 				output.accept(get(FIVE_PEBBSI_CLASSIC, stack -> stack.set(RDataComponents.PEBBSI_REVIEWS, CURRENT_SESSION_FIVEPEBBSI_REVIEWS_1)));
 				output.accept(get(FIVE_PEBBSI_CRYSTAL, stack -> stack.set(RDataComponents.PEBBSI_REVIEWS, CURRENT_SESSION_FIVEPEBBSI_REVIEWS_2)));
@@ -82,8 +94,23 @@ public final class RTab {
 	}
 
 	private static ItemStack get(Holder<? extends ItemLike> item, Consumer<ItemStack> configurer) {
-		final ItemStack ret = new ItemStack(item.value());
+		final ItemLike il = item.value();
+
+		if (il instanceof Spoilable s && !s.spoiler().enabled())
+			return hiddenItem(item);
+
+		final ItemStack ret = new ItemStack(il);
 		configurer.accept(ret);
+
+		return ret;
+	}
+
+	private static ItemStack hiddenItem(Holder<? extends ItemLike> item) {
+		final ItemStack ret = new ItemStack(Blocks.BARRIER);
+		ret.set(DataComponents.ITEM_NAME, Component.translatable("item.rainrot.hidden"));
+		final CompoundTag tag = new CompoundTag();
+		tag.putString("rainrot$hiddenId", item.getKey().location().toString());
+		ret.set(DataComponents.CUSTOM_DATA, CustomData.of(tag));
 		return ret;
 	}
 }

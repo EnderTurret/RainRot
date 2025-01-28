@@ -3,6 +3,8 @@
 
   "item.rainrot.data_pearl": "Data Pearl",
   "item.rainrot.solution": "Solution",
+  "item.rainrot.solution.unspoiler": "???",
+  "item.rainrot.hidden": "Hidden Item",
 
   "item.rainrot.memory_conflakes": "Memory Conflakes",
   "item.rainrot.bowl_of_memory_conflakes": "Bowl of Memory Conflakes",
@@ -11,6 +13,10 @@
   "item.rainrot.five_pebbsi_classic": "Five Pebbsi Classic",
   "item.rainrot.five_pebbsi_crystal": "Five Pebbsi Crystal",
   "item.rainrot.five_pebbsi_rubicon": "Five Pebbsi Rubicon",
+  "item.rainrot.five_pebbsi_classic.unspoiler": "Ancient Beverage",
+  "item.rainrot.five_pebbsi_crystal.unspoiler": "Ancient Beverage",
+  "item.rainrot.five_pebbsi_rubicon.unspoiler": "Ancient Beverage",
+
   "item.rainrot.five_pebbsi.desc.hidden": "[Hold Control for description.]",
   "item.rainrot.five_pebbsi.desc.1": "The solution has been found. The solution is portable. The solution has been implemented. Five Pebbsi: Triple Affirmative comes in three delicious flavors, all guaranteed to lead your tastebuds to ascension*: Classic, Crystal, and Rubicon. Five Pebbsi: Triple Affirmative is now available in every region except Submerged Superstructure — drink Five Pebbsi: Triple Affirmative today!",
   "item.rainrot.five_pebbsi.desc.2": "* Five Pebbles LLC is not responsible for any loss of taste caused by Five Pebbsi: Triple Affirmative. By drinking Five Pebbsi: Triple Affirmative you agree to indemnify Five Pebbles LLC for any damages arising from or related to Five Pebbsi: Triple Affirmative.",
@@ -26,6 +32,7 @@
   "item.rainrot.five_pebbsi.desc.review.10": "\"Weird taste.\" - Five Pebbles",
 
   "block.rainrot.five_pebbsi_vending_machine": "Five Pebbsi Vending Machine",
+  "block.rainrot.five_pebbsi_vending_machine.unspoiler": "Ancient Beverage Vending Machine",
   "block.rainrot.five_pebbsi_vending_machine.instructions": "Right-click the vending machine's top front face with its currency to receive a drink!",
   "block.rainrot.zapper": "Zapper",
   "block.rainrot.zapper.instructions": "[Can be powered.]",
@@ -42,11 +49,18 @@
   "block.rainrot.survivor_slug_plush": "The Survivor",
   "block.rainrot.watcher_slug_plush": "The Watcher",
   "block.rainrot.inv_slug_plush": "Inv Enot Sofanthiel",
+  "block.rainrot.inv_slug_plush.unspoiler": "???",
+
   "block.rainrot.five_pebbles_plush": "Five Pebbles",
+  "block.rainrot.five_pebbles_plush.unspoiler": "Iterator Plush",
   "block.rainrot.looks_to_the_moon_plush": "Looks to the Moon",
+  "block.rainrot.looks_to_the_moon_plush.unspoiler": "Iterator Plush",
   "block.rainrot.no_significant_harassment_plush": "No Significant Harassment",
+  "block.rainrot.no_significant_harassment_plush.unspoiler": "Iterator Plush",
   "block.rainrot.seven_red_suns_plush": "Seven Red Suns",
+  "block.rainrot.seven_red_suns_plush.unspoiler": "Iterator Plush",
   "block.rainrot.sliver_of_straw_plush": "Sliver of Straw",
+  "block.rainrot.sliver_of_straw_plush.unspoiler": "Iterator Plush",
   "block.rainrot.miniature_iterator": "Miniature Iterator",
 
   "painting.rainrot.iterators_against_bioengineering.author": "PuffballFungus",

@@ -10,9 +10,15 @@ import net.minecraft.world.level.block.state.StateDefinition.Builder;
 import net.minecraft.world.level.block.state.properties.BooleanProperty;
 import net.minecraft.world.phys.BlockHitResult;
 
-public final class InvPlushieBlock extends SlugPlushieBlock {
+import net.enderturret.rainrot.RainRotClientConfig;
+import net.enderturret.rainrot.Spoilable;
+import net.enderturret.rainrot.SpoilerTracker;
+
+public final class InvPlushieBlock extends SlugPlushieBlock implements Spoilable {
 
 	public static final BooleanProperty CURSED = BooleanProperty.create("cursed");
+
+	protected final SpoilerTracker spoiler = new SpoilerTracker(RainRotClientConfig::spoilSecretSlug);
 
 	public InvPlushieBlock(Properties properties) {
 		super(properties);
@@ -33,5 +39,15 @@ public final class InvPlushieBlock extends SlugPlushieBlock {
 	protected void createBlockStateDefinition(Builder<Block, BlockState> builder) {
 		super.createBlockStateDefinition(builder);
 		builder.add(CURSED);
+	}
+
+	@Override
+	public SpoilerTracker spoiler() {
+		return spoiler;
+	}
+
+	@Override
+	public String getDescriptionId() {
+		return spoiler.nameKey(super.getDescriptionId());
 	}
 }

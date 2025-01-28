@@ -38,11 +38,16 @@ import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
 
 import net.enderturret.rainrot.RainRot;
-import net.enderturret.rainrot.RainRotConfig;
+import net.enderturret.rainrot.RainRotClientConfig;
+import net.enderturret.rainrot.RainRotServerConfig;
+import net.enderturret.rainrot.Spoilable;
+import net.enderturret.rainrot.SpoilerTracker;
 import net.enderturret.rainrot.init.RItems;
 import net.enderturret.rainrot.init.RSoundEvents;
 
-public final class VendingMachineBlock extends WaterloggableHorizontalDirectionalBlock {
+public final class VendingMachineBlock extends WaterloggableHorizontalDirectionalBlock implements Spoilable {
+
+	protected final SpoilerTracker spoiler = new SpoilerTracker(RainRotClientConfig::spoilSecretSlug);
 
 	public static final EnumProperty<DoubleBlockHalf> HALF = BlockStateProperties.DOUBLE_BLOCK_HALF;
 
@@ -161,7 +166,7 @@ public final class VendingMachineBlock extends WaterloggableHorizontalDirectiona
 		if (state.getValue(HALF) != DoubleBlockHalf.UPPER) return ItemInteractionResult.PASS_TO_DEFAULT_BLOCK_INTERACTION;
 		if (hitResult.getDirection() != state.getValue(FACING)) return ItemInteractionResult.PASS_TO_DEFAULT_BLOCK_INTERACTION;
 
-		final String fullCurrency = RainRotConfig.vendingMachineCurrency();
+		final String fullCurrency = RainRotServerConfig.vendingMachineCurrency();
 		final int commaIdx = fullCurrency.indexOf(',');
 		if (commaIdx == -1) {
 			RainRot.LOGGER.warn("Malformed currency: {} (missing count separator)", fullCurrency);
@@ -202,6 +207,16 @@ public final class VendingMachineBlock extends WaterloggableHorizontalDirectiona
 		}
 
 		return ItemInteractionResult.PASS_TO_DEFAULT_BLOCK_INTERACTION;
+	}
+
+	@Override
+	public SpoilerTracker spoiler() {
+		return spoiler;
+	}
+
+	@Override
+	public String getDescriptionId() {
+		return spoiler.nameKey(super.getDescriptionId());
 	}
 
 	@Override
