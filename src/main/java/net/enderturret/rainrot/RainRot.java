@@ -21,7 +21,7 @@ public final class RainRot {
 	public static final Logger LOGGER = LoggerFactory.getLogger("RainRot");
 
 	public RainRot(ModContainer mc, IEventBus modBus) {
-		mc.registerConfig(ModConfig.Type.SERVER, RainRotConfig.SPEC);
+		mc.registerConfig(ModConfig.Type.SERVER, RainRotServerConfig.SPEC);
 		RItems.REGISTRY.register(modBus);
 		RBlocks.REGISTRY.register(modBus);
 		RTab.REGISTRY.register(modBus);
