@@ -23,14 +23,14 @@ import net.enderturret.rainrot.block.SaintPlushieBlock;
 import net.enderturret.rainrot.block.SlugPlushieBlock;
 import net.enderturret.rainrot.block.TunnelBlock;
 import net.enderturret.rainrot.block.VendingMachineBlock;
-import net.enderturret.rainrot.block.ZapperBlock;
+import net.enderturret.rainrot.block.FluxCondenserBlock;
 
 public final class RBlocks {
 
 	public static final DeferredRegister<Block> REGISTRY = DeferredRegister.create(BuiltInRegistries.BLOCK, RainRot.MOD_ID);
 
 	public static final Holder<Block> FIVE_PEBBSI_VENDING_MACHINE = REGISTRY.register("five_pebbsi_vending_machine", () -> new VendingMachineBlock(props().sound(SoundType.METAL).requiresCorrectToolForDrops().strength(0.5F).lightLevel(state -> 5)));
-	public static final Holder<Block> ZAPPER = REGISTRY.register("zapper", () -> new ZapperBlock(props().sound(SoundType.METAL).requiresCorrectToolForDrops().strength(0.5F)));
+	public static final Holder<Block> FLUX_CONDENSER = REGISTRY.register("zapper", () -> new FluxCondenserBlock(props().sound(SoundType.METAL).requiresCorrectToolForDrops().strength(0.5F)));
 	public static final Holder<Block> TUNNEL = REGISTRY.register("tunnel", () -> new TunnelBlock(props().sound(SoundType.METAL).requiresCorrectToolForDrops().strength(0.5F)));
 
 	public static final Holder<Block> ARTIFICER_SLUG_PLUSH = REGISTRY.register("artificer_slug_plush", () -> new SlugPlushieBlock(plush(MapColor.TERRACOTTA_RED)));
@@ -49,28 +49,6 @@ public final class RBlocks {
 	public static final Holder<Block> SEVEN_RED_SUNS_PLUSH = REGISTRY.register("seven_red_suns_plush", () -> new IteratorPlushieBlock(plush(MapColor.COLOR_ORANGE), RainRotClientConfig::spoilSpearmaster));
 	public static final Holder<Block> SLIVER_OF_STRAW_PLUSH = REGISTRY.register("sliver_of_straw_plush", () -> new IteratorPlushieBlock(plush(MapColor.TERRACOTTA_WHITE), RainRotClientConfig::spoilChallenge70));
 	public static final Holder<Block> MINIATURE_ITERATOR = REGISTRY.register("miniature_iterator", () -> new MiniIteratorBlock(props().requiresCorrectToolForDrops().mapColor(MapColor.STONE).sound(SoundType.STONE).strength(3.5F)));
-
-	static {
-		final Function<String, ResourceLocation> f = path -> ResourceLocation.fromNamespaceAndPath("contentsmp", path);
-		REGISTRY.addAlias(f.apply("vending_machine"), FIVE_PEBBSI_VENDING_MACHINE.getKey().location());
-		REGISTRY.addAlias(f.apply("zapper"), ZAPPER.getKey().location());
-		REGISTRY.addAlias(f.apply("tunnel"), TUNNEL.getKey().location());
-		REGISTRY.addAlias(f.apply("artificer_slug_plush"), ARTIFICER_SLUG_PLUSH.getKey().location());
-		REGISTRY.addAlias(f.apply("gourmand_slug_plush"), GOURMAND_SLUG_PLUSH.getKey().location());
-		REGISTRY.addAlias(f.apply("hunter_slug_plush"), HUNTER_SLUG_PLUSH.getKey().location());
-		REGISTRY.addAlias(f.apply("monk_slug_plush"), MONK_SLUG_PLUSH.getKey().location());
-		REGISTRY.addAlias(f.apply("rivulet_slug_plush"), RIVULET_SLUG_PLUSH.getKey().location());
-		REGISTRY.addAlias(f.apply("saint_slug_plush"), SAINT_SLUG_PLUSH.getKey().location());
-		REGISTRY.addAlias(f.apply("spearmaster_slug_plush"), SPEARMASTER_SLUG_PLUSH.getKey().location());
-		REGISTRY.addAlias(f.apply("survivor_slug_plush"), SURVIVOR_SLUG_PLUSH.getKey().location());
-		REGISTRY.addAlias(f.apply("watcher_slug_plush"), WATCHER_SLUG_PLUSH.getKey().location());
-		REGISTRY.addAlias(f.apply("five_pebbles_plush"), FIVE_PEBBLES_PLUSH.getKey().location());
-		REGISTRY.addAlias(f.apply("looks_to_the_moon_plush"), LOOKS_TO_THE_MOON_PLUSH.getKey().location());
-		REGISTRY.addAlias(f.apply("no_significant_harassment_plush"), NO_SIGNIFICANT_HARASSMENT_PLUSH.getKey().location());
-		REGISTRY.addAlias(f.apply("seven_red_suns_plush"), SEVEN_RED_SUNS_PLUSH.getKey().location());
-		REGISTRY.addAlias(f.apply("sliver_of_straw_plush"), SLIVER_OF_STRAW_PLUSH.getKey().location());
-		REGISTRY.addAlias(f.apply("miniature_iterator"), MINIATURE_ITERATOR.getKey().location());
-	}
 
 	private static Block.Properties props() {
 		return Block.Properties.of();

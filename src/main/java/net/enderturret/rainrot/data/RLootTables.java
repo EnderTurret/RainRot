@@ -37,7 +37,7 @@ public final class RLootTables extends LootTableProvider {
 
 		@Override
 		protected void generate() {
-			dropSelf(RBlocks.ZAPPER.value());
+			dropSelf(RBlocks.FLUX_CONDENSER.value());
 			dropSelf(RBlocks.TUNNEL.value());
 
 			dropSelf(RBlocks.ARTIFICER_SLUG_PLUSH.value());

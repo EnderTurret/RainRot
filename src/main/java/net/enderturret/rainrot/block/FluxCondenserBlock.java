@@ -32,7 +32,7 @@ import net.minecraft.world.phys.shapes.VoxelShape;
 
 import net.enderturret.rainrot.RainRot;
 
-public final class ZapperBlock extends RotatedPillarBlock {
+public final class FluxCondenserBlock extends RotatedPillarBlock {
 
 	public static final EnumProperty<TripleBlockPart> PART = EnumProperty.create("part", TripleBlockPart.class);
 	public static final BooleanProperty POWERED = BlockStateProperties.POWERED;
@@ -58,7 +58,7 @@ public final class ZapperBlock extends RotatedPillarBlock {
 		Z_SHAPES = new VoxelShape[] { Shapes.or(top, middle), middle, Shapes.or(bottom, middle) };
 	}
 
-	public ZapperBlock(Properties properties) {
+	public FluxCondenserBlock(Properties properties) {
 		super(properties);
 		registerDefaultState(defaultBlockState().setValue(PART, TripleBlockPart.BOTTOM).setValue(POWERED, false));
 	}
@@ -103,7 +103,7 @@ public final class ZapperBlock extends RotatedPillarBlock {
 
 			nextState = level.getBlockState(current);
 
-			if (!(nextState.getBlock() instanceof ZapperBlock) || nextState.getValue(AXIS) != axis)
+			if (!(nextState.getBlock() instanceof FluxCondenserBlock) || nextState.getValue(AXIS) != axis)
 				break;
 
 			level.setBlock(current, nextState.setValue(POWERED, powered), UPDATE_CLIENTS);
@@ -122,7 +122,7 @@ public final class ZapperBlock extends RotatedPillarBlock {
 		};
 		final BlockState prevState = context.getLevel().getBlockState(prev);
 
-		if (prevState.getBlock() instanceof ZapperBlock && prevState.getValue(AXIS) == axis)
+		if (prevState.getBlock() instanceof FluxCondenserBlock && prevState.getValue(AXIS) == axis)
 			base = base.setValue(PART, TripleBlockPart.MIDDLE);
 
 		final BlockPos next = switch (axis) {
@@ -132,7 +132,7 @@ public final class ZapperBlock extends RotatedPillarBlock {
 		};
 		final BlockState nextState = context.getLevel().getBlockState(next);
 
-		if (!nextState.isAir() && !(nextState.getBlock() instanceof ZapperBlock))
+		if (!nextState.isAir() && !(nextState.getBlock() instanceof FluxCondenserBlock))
 			base = base.setValue(PART, TripleBlockPart.TOP);
 
 		return base;
