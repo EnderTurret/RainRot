@@ -20,7 +20,7 @@ import net.enderturret.rainrot.RainRot;
 import net.enderturret.rainrot.init.RDataComponents;
 import net.enderturret.rainrot.init.RItems;
 
-@EventBusSubscriber(modid = RainRot.MOD_ID, bus = EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
+@EventBusSubscriber(modid = RainRot.MOD_ID, value = Dist.CLIENT)
 public final class ClientEvents {
 
 	@SubscribeEvent

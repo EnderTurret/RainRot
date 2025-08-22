@@ -14,7 +14,7 @@ import net.neoforged.neoforge.event.entity.player.AttackEntityEvent;
 
 import net.enderturret.rainrot.item.SolutionItem;
 
-@EventBusSubscriber(modid = RainRot.MOD_ID, bus = EventBusSubscriber.Bus.GAME)
+@EventBusSubscriber(modid = RainRot.MOD_ID)
 public final class CommonEvents {
 
 	private static final ResourceKey<DamageType> ASCENSION_1 = ResourceKey.create(Registries.DAMAGE_TYPE, ResourceLocation.fromNamespaceAndPath(RainRot.MOD_ID, "ascension1"));

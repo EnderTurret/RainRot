@@ -12,7 +12,7 @@ import net.neoforged.neoforge.data.event.GatherDataEvent;
 
 import net.enderturret.rainrot.RainRot;
 
-@EventBusSubscriber(modid = RainRot.MOD_ID, bus = EventBusSubscriber.Bus.MOD)
+@EventBusSubscriber(modid = RainRot.MOD_ID)
 public final class RDatagen {
 
 	@SubscribeEvent
