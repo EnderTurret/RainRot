@@ -58,7 +58,7 @@ public final class RTab {
 	public static final Holder<CreativeModeTab> INSTANCE = REGISTRY.register("tab", () -> CreativeModeTab.builder().title(Component.translatable("itemGroup.rainrot"))
 			.icon(() -> RainRotClientConfig.spoilSaint() ? get(SOLUTION) : get(DATA_PEARL))
 			.displayItems((params, output) -> {
-				addAll(output, MEMORY_CONFLAKES, BOWL_OF_MEMORY_CONFLAKES, BOWL_OF_UNFORTUNATE_DEVELOPMENT);
+				addAll(output, MEMORY_CONFLAKES, BOWL_OF_MEMORY_CONFLAKES, BOWL_OF_UNFORTUNATE_DEVELOPMENT, BOWL_OF_UNFORTUNATE_EVOLUTION);
 
 				output.accept(get(FIVE_PEBBSI_CLASSIC, stack -> stack.set(RDataComponents.PEBBSI_REVIEWS, CURRENT_SESSION_FIVEPEBBSI_REVIEWS_1)));
 				output.accept(get(FIVE_PEBBSI_CRYSTAL, stack -> stack.set(RDataComponents.PEBBSI_REVIEWS, CURRENT_SESSION_FIVEPEBBSI_REVIEWS_2)));

@@ -33,6 +33,7 @@ public final class RItems {
 	public static final Holder<Item> MEMORY_CONFLAKES = REGISTRY.register("memory_conflakes", () -> new CerealBoxItem(props(1).durability(6), RainRotClientConfig::spoilBaseGame));
 	public static final Holder<Item> BOWL_OF_MEMORY_CONFLAKES = REGISTRY.register("bowl_of_memory_conflakes", () -> new AbstractSpoilableItem(food(6, 1, Items.BOWL).stacksTo(16), RainRotClientConfig::spoilBaseGame));
 	public static final Holder<Item> BOWL_OF_UNFORTUNATE_DEVELOPMENT = REGISTRY.register("bowl_of_unfortunate_development", () -> new AbstractSpoilableItem(food(6, 1, Items.BOWL).stacksTo(16), RainRotClientConfig::spoilBaseGame));
+	public static final Holder<Item> BOWL_OF_UNFORTUNATE_EVOLUTION = REGISTRY.register("bowl_of_unfortunate_evolution", () -> new AbstractSpoilableItem(food(6, 1, Items.BOWL).stacksTo(16), RainRotClientConfig::spoilWatcher, 1.25f));
 
 	public static final Holder<Item> DATA_PEARL = REGISTRY.register("data_pearl", () -> new Item(props(1)));
 	public static final Holder<Item> SOLUTION = REGISTRY.register("solution", () -> new SolutionItem(props(1).rarity(Rarity.EPIC)));

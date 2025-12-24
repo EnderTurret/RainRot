@@ -20,6 +20,7 @@ public final class RItemModels extends ItemModelProvider {
 	protected void registerModels() {
 		basicItem(RItems.BOWL_OF_MEMORY_CONFLAKES.value());
 		basicItem(RItems.BOWL_OF_UNFORTUNATE_DEVELOPMENT.value());
+		basicItem(RItems.BOWL_OF_UNFORTUNATE_EVOLUTION.value());
 
 		basicItem(RItems.DATA_PEARL.value());
 
