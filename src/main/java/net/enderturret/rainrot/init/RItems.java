@@ -1,5 +1,6 @@
 package net.enderturret.rainrot.init;
 
+import java.util.function.Consumer;
 import java.util.function.Function;
 
 import org.jetbrains.annotations.Nullable;
@@ -21,6 +22,7 @@ import net.enderturret.rainrot.item.AbstractSpoilableItem;
 import net.enderturret.rainrot.item.BubblefruitItem;
 import net.enderturret.rainrot.item.CerealBoxItem;
 import net.enderturret.rainrot.item.FivePebbsiItem;
+import net.enderturret.rainrot.item.EdibleRotItem;
 import net.enderturret.rainrot.item.SolutionItem;
 
 public final class RItems {
@@ -33,8 +35,8 @@ public final class RItems {
 
 	public static final Holder<Item> MEMORY_CONFLAKES = REGISTRY.register("memory_conflakes", () -> new CerealBoxItem(props(1).durability(6), RainRotClientConfig::spoilBaseGame));
 	public static final Holder<Item> BOWL_OF_MEMORY_CONFLAKES = REGISTRY.register("bowl_of_memory_conflakes", () -> new AbstractSpoilableItem(food(6, 1, Items.BOWL).stacksTo(16), RainRotClientConfig::spoilBaseGame));
-	public static final Holder<Item> BOWL_OF_UNFORTUNATE_DEVELOPMENT = REGISTRY.register("bowl_of_unfortunate_development", () -> new AbstractSpoilableItem(food(6, 1, Items.BOWL).stacksTo(16), RainRotClientConfig::spoilBaseGame));
-	public static final Holder<Item> BOWL_OF_UNFORTUNATE_EVOLUTION = REGISTRY.register("bowl_of_unfortunate_evolution", () -> new AbstractSpoilableItem(food(6, 1, Items.BOWL).stacksTo(16), RainRotClientConfig::spoilWatcher, 1.25f));
+	public static final Holder<Item> BOWL_OF_UNFORTUNATE_DEVELOPMENT = REGISTRY.register("bowl_of_unfortunate_development", () -> new EdibleRotItem(food(6, 1, Items.BOWL).stacksTo(16), RainRotClientConfig::spoilBaseGame));
+	public static final Holder<Item> BOWL_OF_UNFORTUNATE_EVOLUTION = REGISTRY.register("bowl_of_unfortunate_evolution", () -> new EdibleRotItem(food(6, 1, Items.BOWL).stacksTo(16), RainRotClientConfig::spoilWatcher, 1.25f));
 
 	public static final Holder<Item> BUBBLEFRUIT = REGISTRY.register("bubblefruit", () -> new BubblefruitItem(props()));
 	public static final Holder<Item> POPPED_BUBBLEFRUIT = REGISTRY.register("popped_bubblefruit", () -> new Item(food(2, 1)));
@@ -50,10 +52,15 @@ public final class RItems {
 		return props().stacksTo(stackSize);
 	}
 
-	private static Item.Properties food(int hunger, float saturation, @Nullable ItemLike conversion) {
+	private static Item.Properties food(int hunger, float saturation, @Nullable ItemLike conversion, Consumer<FoodProperties.Builder> configuration) {
 		final var builder = new FoodProperties.Builder().nutrition(hunger).saturationModifier(saturation);
 		if (conversion != null) builder.usingConvertsTo(conversion);
+		configuration.accept(builder);
 		return props().food(builder.build());
+	}
+
+	private static Item.Properties food(int hunger, float saturation, @Nullable ItemLike conversion) {
+		return food(hunger, saturation, conversion, builder -> {});
 	}
 
 	private static Item.Properties food(int hunger, float saturation) {
