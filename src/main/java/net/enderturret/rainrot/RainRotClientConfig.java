@@ -21,11 +21,18 @@ public final class RainRotClientConfig {
 	private final ModConfigSpec.BooleanValue spoilSecretSlug;
 	private final ModConfigSpec.BooleanValue spoilChallenge70;
 
+	private final ModConfigSpec.BooleanValue spoilWatcher;
+	private final ModConfigSpec.BooleanValue spoilWatcher15;
+
 	private RainRotClientConfig(ModConfigSpec.Builder builder) {
 		builder.comment("Configuration options for limiting the number of visible spoilers.").push("spoilers");
 
 		spoilBaseGame = builder.comment(
-				"Whether or not to enable spoilers for the base game."
+				"Whether or not to enable spoilers for the base game.",
+				"These are specifically spoilers for later parts of the game — not e.g. blue fruit.",
+				"",
+				"This config option also acts as a master toggle for all other spoiler settings;",
+				"if you turn this off, all the others are also turned off."
 				).define("base", true);
 
 		spoilHunter = builder.comment(
@@ -50,6 +57,17 @@ public final class RainRotClientConfig {
 				"Whether or not to enable spoilers for challenge 70."
 				).define("challenge70", true);
 
+		builder.pop().comment("Watcher-specific spoilers.").push("watcher");
+
+		spoilWatcher = builder.comment(
+				"Whether or not to enable spoilers for base Watcher.",
+				"Turning this off also turns off Watcher v1.5 spoilers."
+				).define("watcher", true);
+
+		spoilWatcher15 = builder.comment(
+				"Whether or not to enable spoilers for the Watcher v1.5 update."
+				).define("watcher15", true);
+
 		builder.pop().pop();
 	}
 
@@ -58,22 +76,30 @@ public final class RainRotClientConfig {
 	}
 
 	public static boolean spoilHunter() {
-		return CONFIG.spoilHunter.get();
+		return spoilBaseGame() && CONFIG.spoilHunter.get();
 	}
 
 	public static boolean spoilSpearmaster() {
-		return CONFIG.spoilSpearmaster.get();
+		return spoilBaseGame() && CONFIG.spoilSpearmaster.get();
 	}
 
 	public static boolean spoilSaint() {
-		return CONFIG.spoilSaint.get();
+		return spoilBaseGame() && CONFIG.spoilSaint.get();
 	}
 
 	public static boolean spoilSecretSlug() {
-		return CONFIG.spoilSecretSlug.get();
+		return spoilBaseGame() && CONFIG.spoilSecretSlug.get();
 	}
 
 	public static boolean spoilChallenge70() {
-		return CONFIG.spoilChallenge70.get();
+		return spoilSaint() && CONFIG.spoilChallenge70.get();
+	}
+
+	public static boolean spoilWatcher() {
+		return spoilBaseGame() && CONFIG.spoilWatcher.get();
+	}
+
+	public static boolean spoilWatcher15() {
+		return spoilWatcher() && CONFIG.spoilWatcher15.get();
 	}
 }

@@ -58,13 +58,7 @@ public final class RTab {
 	public static final Holder<CreativeModeTab> INSTANCE = REGISTRY.register("tab", () -> CreativeModeTab.builder().title(Component.translatable("itemGroup.rainrot"))
 			.icon(() -> RainRotClientConfig.spoilSaint() ? get(SOLUTION) : get(DATA_PEARL))
 			.displayItems((params, output) -> {
-				if (RainRotClientConfig.spoilBaseGame())
-					addAll(output, MEMORY_CONFLAKES, BOWL_OF_MEMORY_CONFLAKES, BOWL_OF_UNFORTUNATE_DEVELOPMENT);
-				else {
-					output.accept(hiddenItem(MEMORY_CONFLAKES));
-					output.accept(hiddenItem(BOWL_OF_MEMORY_CONFLAKES));
-					output.accept(hiddenItem(BOWL_OF_UNFORTUNATE_DEVELOPMENT));
-				}
+				addAll(output, MEMORY_CONFLAKES, BOWL_OF_MEMORY_CONFLAKES, BOWL_OF_UNFORTUNATE_DEVELOPMENT);
 
 				output.accept(get(FIVE_PEBBSI_CLASSIC, stack -> stack.set(RDataComponents.PEBBSI_REVIEWS, CURRENT_SESSION_FIVEPEBBSI_REVIEWS_1)));
 				output.accept(get(FIVE_PEBBSI_CRYSTAL, stack -> stack.set(RDataComponents.PEBBSI_REVIEWS, CURRENT_SESSION_FIVEPEBBSI_REVIEWS_2)));
@@ -96,7 +90,7 @@ public final class RTab {
 	private static ItemStack get(Holder<? extends ItemLike> item, Consumer<ItemStack> configurer) {
 		final ItemLike il = item.value();
 
-		if (il instanceof Spoilable s && !s.spoiler().enabled())
+		if (il instanceof Spoilable s && s.spoiler() != null && !s.spoiler().enabled())
 			return hiddenItem(item);
 
 		final ItemStack ret = new ItemStack(il);

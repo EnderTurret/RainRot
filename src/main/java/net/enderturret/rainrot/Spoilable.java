@@ -1,5 +1,7 @@
 package net.enderturret.rainrot;
 
+import org.jetbrains.annotations.Nullable;
+
 public interface Spoilable {
-	public SpoilerTracker spoiler();
+	public @Nullable SpoilerTracker spoiler();
 }

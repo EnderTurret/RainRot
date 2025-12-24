@@ -1,13 +1,17 @@
 package net.enderturret.rainrot.item;
 
+import java.util.function.BooleanSupplier;
+
+import org.jetbrains.annotations.Nullable;
+
 import net.minecraft.core.component.DataComponents;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 
-public final class CerealBoxItem extends Item {
+public final class CerealBoxItem extends AbstractSpoilableItem {
 
-	public CerealBoxItem(Properties properties) {
-		super(properties);
+	public CerealBoxItem(Properties properties, @Nullable BooleanSupplier spoilerConfigOption) {
+		super(properties, spoilerConfigOption);
 	}
 
 	@Override
