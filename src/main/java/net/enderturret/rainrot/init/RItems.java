@@ -18,6 +18,7 @@ import net.neoforged.neoforge.registries.DeferredRegister;
 import net.enderturret.rainrot.RainRot;
 import net.enderturret.rainrot.RainRotClientConfig;
 import net.enderturret.rainrot.item.AbstractSpoilableItem;
+import net.enderturret.rainrot.item.BubblefruitItem;
 import net.enderturret.rainrot.item.CerealBoxItem;
 import net.enderturret.rainrot.item.FivePebbsiItem;
 import net.enderturret.rainrot.item.SolutionItem;
@@ -34,6 +35,9 @@ public final class RItems {
 	public static final Holder<Item> BOWL_OF_MEMORY_CONFLAKES = REGISTRY.register("bowl_of_memory_conflakes", () -> new AbstractSpoilableItem(food(6, 1, Items.BOWL).stacksTo(16), RainRotClientConfig::spoilBaseGame));
 	public static final Holder<Item> BOWL_OF_UNFORTUNATE_DEVELOPMENT = REGISTRY.register("bowl_of_unfortunate_development", () -> new AbstractSpoilableItem(food(6, 1, Items.BOWL).stacksTo(16), RainRotClientConfig::spoilBaseGame));
 	public static final Holder<Item> BOWL_OF_UNFORTUNATE_EVOLUTION = REGISTRY.register("bowl_of_unfortunate_evolution", () -> new AbstractSpoilableItem(food(6, 1, Items.BOWL).stacksTo(16), RainRotClientConfig::spoilWatcher, 1.25f));
+
+	public static final Holder<Item> BUBBLEFRUIT = REGISTRY.register("bubblefruit", () -> new BubblefruitItem(props()));
+	public static final Holder<Item> POPPED_BUBBLEFRUIT = REGISTRY.register("popped_bubblefruit", () -> new Item(food(2, 1)));
 
 	public static final Holder<Item> DATA_PEARL = REGISTRY.register("data_pearl", () -> new Item(props(1)));
 	public static final Holder<Item> SOLUTION = REGISTRY.register("solution", () -> new SolutionItem(props(1).rarity(Rarity.EPIC)));

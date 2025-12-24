@@ -22,6 +22,9 @@ public final class RItemModels extends ItemModelProvider {
 		basicItem(RItems.BOWL_OF_UNFORTUNATE_DEVELOPMENT.value());
 		basicItem(RItems.BOWL_OF_UNFORTUNATE_EVOLUTION.value());
 
+		basicItem(RItems.BUBBLEFRUIT.value());
+		basicItem(RItems.POPPED_BUBBLEFRUIT.value());
+
 		basicItem(RItems.DATA_PEARL.value());
 
 		withExistingParent(RBlocks.FLUX_CONDENSER.getKey().location().toString(), ResourceLocation.fromNamespaceAndPath(RainRot.MOD_ID, "block/zapper_bottom"));
