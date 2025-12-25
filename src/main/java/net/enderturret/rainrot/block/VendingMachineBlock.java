@@ -27,7 +27,7 @@ import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
 
 import net.enderturret.rainrot.RainRot;
-import net.enderturret.rainrot.RainRotClientConfig;
+import net.enderturret.rainrot.RainRotCommonConfig;
 import net.enderturret.rainrot.RainRotServerConfig;
 import net.enderturret.rainrot.Spoilable;
 import net.enderturret.rainrot.SpoilerTracker;
@@ -36,7 +36,7 @@ import net.enderturret.rainrot.init.RSoundEvents;
 
 public final class VendingMachineBlock extends WaterloggableDoubleBlock implements Spoilable {
 
-	protected final SpoilerTracker spoiler = new SpoilerTracker(RainRotClientConfig::spoilSecretSlug);
+	protected final SpoilerTracker spoiler = new SpoilerTracker(RainRotCommonConfig::spoilSecretSlug);
 
 	private static final VoxelShape[] TOP_AABB;
 	private static final VoxelShape[] BOTTOM_AABB;

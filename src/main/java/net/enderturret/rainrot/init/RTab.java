@@ -21,7 +21,7 @@ import net.minecraft.world.level.block.Blocks;
 import net.neoforged.neoforge.registries.DeferredRegister;
 
 import net.enderturret.rainrot.RainRot;
-import net.enderturret.rainrot.RainRotClientConfig;
+import net.enderturret.rainrot.RainRotCommonConfig;
 import net.enderturret.rainrot.Spoilable;
 import net.enderturret.rainrot.item.FivePebbsiItem;
 
@@ -56,7 +56,7 @@ public final class RTab {
 	public static final DeferredRegister<CreativeModeTab> REGISTRY = DeferredRegister.create(BuiltInRegistries.CREATIVE_MODE_TAB, RainRot.MOD_ID);
 
 	public static final Holder<CreativeModeTab> INSTANCE = REGISTRY.register("tab", () -> CreativeModeTab.builder().title(Component.translatable("itemGroup.rainrot"))
-			.icon(() -> RainRotClientConfig.spoilSaint() ? get(SOLUTION) : get(DATA_PEARL))
+			.icon(() -> RainRotCommonConfig.spoilSaint() ? get(SOLUTION) : get(DATA_PEARL))
 			.displayItems((params, output) -> {
 				addAll(output, MEMORY_CONFLAKES, BOWL_OF_MEMORY_CONFLAKES, BOWL_OF_UNFORTUNATE_DEVELOPMENT, BOWL_OF_UNFORTUNATE_EVOLUTION);
 

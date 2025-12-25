@@ -2,13 +2,13 @@ package net.enderturret.rainrot.item;
 
 import net.minecraft.world.item.Item;
 
-import net.enderturret.rainrot.RainRotClientConfig;
+import net.enderturret.rainrot.RainRotCommonConfig;
 import net.enderturret.rainrot.Spoilable;
 import net.enderturret.rainrot.SpoilerTracker;
 
 public final class SolutionItem extends Item implements Spoilable {
 
-	protected final SpoilerTracker spoiler = new SpoilerTracker(RainRotClientConfig::spoilSaint);
+	protected final SpoilerTracker spoiler = new SpoilerTracker(RainRotCommonConfig::spoilSaint);
 
 	public SolutionItem(Properties properties) {
 		super(properties);

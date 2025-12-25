@@ -24,7 +24,7 @@ public final class RainRot {
 
 	public RainRot(ModContainer mc, IEventBus modBus) {
 		mc.registerConfig(ModConfig.Type.SERVER, RainRotServerConfig.SPEC);
-		mc.registerConfig(ModConfig.Type.CLIENT, RainRotClientConfig.SPEC);
+		mc.registerConfig(ModConfig.Type.COMMON, RainRotCommonConfig.SPEC);
 		RItems.REGISTRY.register(modBus);
 		RBlocks.REGISTRY.register(modBus);
 		RBlockEntities.REGISTRY.register(modBus);

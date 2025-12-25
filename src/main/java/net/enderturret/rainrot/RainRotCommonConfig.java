@@ -2,13 +2,13 @@ package net.enderturret.rainrot;
 
 import net.neoforged.neoforge.common.ModConfigSpec;
 
-public final class RainRotClientConfig {
+public final class RainRotCommonConfig {
 
 	static final ModConfigSpec SPEC;
-	private static final RainRotClientConfig CONFIG;
+	private static final RainRotCommonConfig CONFIG;
 
 	static {
-		final var pair = new ModConfigSpec.Builder().configure(RainRotClientConfig::new);
+		final var pair = new ModConfigSpec.Builder().configure(RainRotCommonConfig::new);
 		SPEC = pair.getRight();
 		CONFIG = pair.getLeft();
 	}
@@ -24,8 +24,11 @@ public final class RainRotClientConfig {
 	private final ModConfigSpec.BooleanValue spoilWatcher;
 	private final ModConfigSpec.BooleanValue spoilWatcher15;
 
-	private RainRotClientConfig(ModConfigSpec.Builder builder) {
-		builder.comment("Configuration options for limiting the number of visible spoilers.").push("spoilers");
+	private RainRotCommonConfig(ModConfigSpec.Builder builder) {
+		builder.comment(
+				"Configuration options for limiting the number of visible spoilers.",
+				"On the client, these will hide items from the creative tab and make item names less specific.",
+				"On the server, these will remove recipes for relevant items.").push("spoilers");
 
 		spoilBaseGame = builder.comment(
 				"Whether or not to enable spoilers for the base game.",
