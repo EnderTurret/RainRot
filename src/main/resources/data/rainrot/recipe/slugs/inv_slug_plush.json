@@ -1,4 +1,5 @@
 {
+  "neoforge:conditions": [{ "type": "rainrot:config", "option": "spoilSecretSlug" }],
   "type": "minecraft:crafting_shaped",
   "pattern": [
     "WWW",
