@@ -5,7 +5,6 @@ import java.util.function.BooleanSupplier;
 import org.jetbrains.annotations.Nullable;
 
 import net.minecraft.core.component.DataComponents;
-import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 
 public final class CerealBoxItem extends AbstractSpoilableItem {
