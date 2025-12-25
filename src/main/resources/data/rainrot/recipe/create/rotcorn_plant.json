@@ -1,0 +1,13 @@
+{
+  "neoforge:conditions": [
+    { "type": "rainrot:config", "option": "spoilWatcher" },
+    { "type": "neoforge:mod_loaded", "modid": "create" }
+  ],
+  "type": "create:haunting",
+  "ingredients": [
+    { "item": "rainrot:popcorn_plant" }
+  ],
+  "results": [
+    { "id": "rainrot:rotcorn_plant" }
+  ]
+}

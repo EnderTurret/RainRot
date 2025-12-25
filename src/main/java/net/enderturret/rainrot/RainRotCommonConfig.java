@@ -13,6 +13,8 @@ public final class RainRotCommonConfig {
 		CONFIG = pair.getLeft();
 	}
 
+	private final ModConfigSpec.BooleanValue modifySnifferLoot;
+
 	private final ModConfigSpec.BooleanValue spoilBaseGame;
 	private final ModConfigSpec.BooleanValue spoilHunter;
 
@@ -25,6 +27,10 @@ public final class RainRotCommonConfig {
 	private final ModConfigSpec.BooleanValue spoilWatcher15;
 
 	private RainRotCommonConfig(ModConfigSpec.Builder builder) {
+		modifySnifferLoot = builder.comment(
+				"Whether or not Rain Rot should add its bubblefruit and popcorn plants to the Sniffer loot table."
+				).define("modifySnifferLoot", true);
+
 		builder.comment(
 				"Configuration options for limiting the number of visible spoilers.",
 				"On the client, these will hide items from the creative tab and make item names less specific.",
@@ -72,6 +78,10 @@ public final class RainRotCommonConfig {
 				).define("watcher15", true);
 
 		builder.pop().pop();
+	}
+
+	public static boolean modifySnifferLoot() {
+		return CONFIG.modifySnifferLoot.getAsBoolean();
 	}
 
 	public static boolean spoilBaseGame() {
