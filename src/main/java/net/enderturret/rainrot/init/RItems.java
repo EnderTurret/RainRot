@@ -1,13 +1,11 @@
 package net.enderturret.rainrot.init;
 
 import java.util.function.Consumer;
-import java.util.function.Function;
 
 import org.jetbrains.annotations.Nullable;
 
 import net.minecraft.core.Holder;
 import net.minecraft.core.registries.BuiltInRegistries;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.food.FoodProperties;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
@@ -21,8 +19,8 @@ import net.enderturret.rainrot.RainRotClientConfig;
 import net.enderturret.rainrot.item.AbstractSpoilableItem;
 import net.enderturret.rainrot.item.BubblefruitItem;
 import net.enderturret.rainrot.item.CerealBoxItem;
-import net.enderturret.rainrot.item.FivePebbsiItem;
 import net.enderturret.rainrot.item.EdibleRotItem;
+import net.enderturret.rainrot.item.FivePebbsiItem;
 import net.enderturret.rainrot.item.SolutionItem;
 
 public final class RItems {
@@ -38,6 +36,8 @@ public final class RItems {
 	public static final Holder<Item> BOWL_OF_UNFORTUNATE_DEVELOPMENT = REGISTRY.register("bowl_of_unfortunate_development", () -> new EdibleRotItem(food(6, 1, Items.BOWL).stacksTo(16), RainRotClientConfig::spoilBaseGame));
 	public static final Holder<Item> BOWL_OF_UNFORTUNATE_EVOLUTION = REGISTRY.register("bowl_of_unfortunate_evolution", () -> new EdibleRotItem(food(6, 1, Items.BOWL).stacksTo(16), RainRotClientConfig::spoilWatcher, 1.25f));
 
+	public static final Holder<Item> POPCORN_SEEDS = REGISTRY.register("popcorn_seeds", () -> new Item(food(2, 0.5F, null, b -> b.fast())));
+	public static final Holder<Item> ROTCORN_SEEDS = REGISTRY.register("rotcorn_seeds", () -> new EdibleRotItem(food(1, 0.5F, null, b -> b.fast()), RainRotClientConfig::spoilWatcher));
 	public static final Holder<Item> BUBBLEFRUIT = REGISTRY.register("bubblefruit", () -> new BubblefruitItem(props()));
 	public static final Holder<Item> POPPED_BUBBLEFRUIT = REGISTRY.register("popped_bubblefruit", () -> new Item(food(2, 1)));
 

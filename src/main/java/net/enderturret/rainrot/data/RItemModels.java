@@ -22,6 +22,10 @@ public final class RItemModels extends ItemModelProvider {
 		basicItem(RItems.BOWL_OF_UNFORTUNATE_DEVELOPMENT.value());
 		basicItem(RItems.BOWL_OF_UNFORTUNATE_EVOLUTION.value());
 
+		basicItem(RItems.POPCORN_SEEDS.value());
+		basicItem(RBlocks.POPCORN_PLANT.value().asItem());
+		basicItem(RItems.ROTCORN_SEEDS.value());
+		basicItem(RBlocks.ROTCORN_PLANT.value().asItem());
 		basicItem(RItems.BUBBLEFRUIT.value());
 		basicItem(RItems.POPPED_BUBBLEFRUIT.value());
 

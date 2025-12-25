@@ -1,0 +1,36 @@
+{
+	"texture_size": [16, 32],
+	"textures": {
+		"1": "rainrot:block/popcorn_plant_closed",
+		"particle": "#1"
+	},
+	"elements": [
+		{
+			"name": "Cobtop",
+			"from": [7.88059, 11.90461, 7],
+			"to": [9.88059, 13.90461, 9],
+			"rotation": {"angle": -22.5, "axis": "z", "origin": [8.88059, 4.40461, 8]},
+			"faces": {
+				"north": {"uv": [11, 3, 13, 4], "texture": "#1"},
+				"east": {"uv": [11, 2, 13, 3], "texture": "#1"},
+				"south": {"uv": [12, 15, 14, 16], "texture": "#1"},
+				"west": {"uv": [12, 14, 14, 15], "texture": "#1"},
+				"up": {"uv": [15, 3, 13, 2], "texture": "#1"}
+			}
+		},
+		{
+			"name": "Cob",
+			"from": [6.88059, -0.09539, 6],
+			"to": [10.88059, 11.90461, 10],
+			"rotation": {"angle": -22.5, "axis": "z", "origin": [8.88059, 4.40461, 8]},
+			"faces": {
+				"north": {"uv": [0, 4, 4, 10], "texture": "#1"},
+				"east": {"uv": [4, 4, 8, 10], "texture": "#1"},
+				"south": {"uv": [8, 4, 12, 10], "texture": "#1"},
+				"west": {"uv": [12, 4, 16, 10], "texture": "#1"},
+				"up": {"uv": [12, 16, 8, 14], "texture": "#1"},
+				"down": {"uv": [15, 0, 11, 2], "texture": "#1"}
+			}
+		}
+	]
+}

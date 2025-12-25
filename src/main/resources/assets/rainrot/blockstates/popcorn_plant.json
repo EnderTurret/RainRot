@@ -1,0 +1,20 @@
+{
+  "variants": {
+    "facing=east,half=upper,state=closed":  { "model": "rainrot:block/popcorn_plant_top_closed"           },
+    "facing=west,half=upper,state=closed":  { "model": "rainrot:block/popcorn_plant_top_closed", "y": 180 },
+    "facing=south,half=upper,state=closed": { "model": "rainrot:block/popcorn_plant_top_closed", "y": 90  },
+    "facing=north,half=upper,state=closed": { "model": "rainrot:block/popcorn_plant_top_closed", "y": 270 },
+    "facing=east,half=upper,state=open":  { "model": "rainrot:block/popcorn_plant_top_open"           },
+    "facing=west,half=upper,state=open":  { "model": "rainrot:block/popcorn_plant_top_open", "y": 180 },
+    "facing=south,half=upper,state=open": { "model": "rainrot:block/popcorn_plant_top_open", "y": 90  },
+    "facing=north,half=upper,state=open": { "model": "rainrot:block/popcorn_plant_top_open", "y": 270 },
+    "facing=east,half=upper,state=depleted":  { "model": "rainrot:block/popcorn_plant_top_depleted"           },
+    "facing=west,half=upper,state=depleted":  { "model": "rainrot:block/popcorn_plant_top_depleted", "y": 180 },
+    "facing=south,half=upper,state=depleted": { "model": "rainrot:block/popcorn_plant_top_depleted", "y": 90  },
+    "facing=north,half=upper,state=depleted": { "model": "rainrot:block/popcorn_plant_top_depleted", "y": 270 },
+    "facing=east,half=lower":  { "model": "rainrot:block/popcorn_plant_bottom"           },
+    "facing=west,half=lower":  { "model": "rainrot:block/popcorn_plant_bottom", "y": 180 },
+    "facing=south,half=lower": { "model": "rainrot:block/popcorn_plant_bottom", "y": 90  },
+    "facing=north,half=lower": { "model": "rainrot:block/popcorn_plant_bottom", "y": 270 }
+  }
+}

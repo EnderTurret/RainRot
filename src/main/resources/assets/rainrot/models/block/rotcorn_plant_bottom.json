@@ -1,0 +1,6 @@
+{
+  "parent": "rainrot:block/popcorn_plant_bottom",
+  "textures": {
+    "1": "rainrot:block/rotcorn_plant_closed"
+  }
+}

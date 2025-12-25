@@ -1,0 +1,6 @@
+{
+  "parent": "rainrot:block/popcorn_plant_top_depleted",
+  "textures": {
+    "1": "rainrot:block/rotcorn_plant_depleted"
+  }
+}

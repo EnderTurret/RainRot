@@ -13,4 +13,7 @@ public final class RSoundEvents {
 	public static final DeferredRegister<SoundEvent> REGISTRY = DeferredRegister.create(BuiltInRegistries.SOUND_EVENT, RainRot.MOD_ID);
 
 	public static final Holder<SoundEvent> VENDING_MACHINE_DISPENSE = REGISTRY.register("vending_machine_dispense", SoundEvent::createVariableRangeEvent);
+	public static final Holder<SoundEvent> BUBBLEFRUIT_POP = REGISTRY.register("bubblefruit_pop", SoundEvent::createVariableRangeEvent);
+	public static final Holder<SoundEvent> POPCORN_PLANT_OPEN = REGISTRY.register("popcorn_plant_open", SoundEvent::createVariableRangeEvent);
+	public static final Holder<SoundEvent> POPCORN_PLANT_POP = REGISTRY.register("popcorn_plant_pop", SoundEvent::createVariableRangeEvent);
 }

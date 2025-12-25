@@ -1,0 +1,10 @@
+{
+  "replace": false,
+  "values": [
+    "#minecraft:swords",
+    "#minecraft:hoes",
+    "#c:tools/spear",
+    { "id": "#farmersdelight:tools/knives", "required": false },
+    "rainrot:solution"
+  ]
+}

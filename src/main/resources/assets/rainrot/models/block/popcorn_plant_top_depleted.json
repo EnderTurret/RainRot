@@ -1,0 +1,99 @@
+{
+	"texture_size": [32, 32],
+	"textures": {
+		"1": "rainrot:block/popcorn_plant_depleted",
+		"particle": "#1"
+	},
+	"elements": [
+		{
+			"name": "Cobtop",
+			"from": [7.88059, 11.90461, 7],
+			"to": [9.88059, 13.90461, 9],
+			"rotation": {"angle": -22.5, "axis": "z", "origin": [8.88059, 4.40461, 8]},
+			"faces": {
+				"north": {"uv": [4, 14, 5, 15], "texture": "#1"},
+				"east": {"uv": [11.5, 3, 12.5, 4], "texture": "#1"},
+				"south": {"uv": [5, 14, 6, 15], "texture": "#1"},
+				"west": {"uv": [6, 14, 7, 15], "texture": "#1"},
+				"up": {"uv": [8, 15, 7, 14], "texture": "#1"}
+			}
+		},
+		{
+			"name": "middlecobthing",
+			"from": [6.88059, 10.90461, 6],
+			"to": [10.88059, 11.90461, 10],
+			"rotation": {"angle": -22.5, "axis": "z", "origin": [8.88059, 4.40461, 8]},
+			"faces": {
+				"north": {"uv": [8, 4, 10, 4.5], "texture": "#1"},
+				"south": {"uv": [12, 4, 14, 4.5], "texture": "#1"},
+				"up": {"uv": [15.5, 2, 13.5, 0], "texture": "#1"},
+				"down": {"uv": [15.5, 0, 13.5, 2], "texture": "#1"}
+			}
+		},
+		{
+			"name": "depletedcob",
+			"from": [7.38059, -0.59539, 6.5],
+			"to": [10.38059, 11.40461, 9.5],
+			"rotation": {"angle": -22.5, "axis": "z", "origin": [8.88059, 4.40461, 8]},
+			"faces": {
+				"north": {"uv": [0, 4.5, 1.5, 10], "texture": "#1"},
+				"east": {"uv": [2, 4.5, 3.5, 10], "texture": "#1"},
+				"south": {"uv": [4, 4.5, 5.5, 10], "texture": "#1"},
+				"west": {"uv": [6, 4.5, 7.5, 10], "texture": "#1"},
+				"down": {"uv": [13, 0, 11.5, 1.5], "texture": "#1"}
+			}
+		},
+		{
+			"name": "LeafL",
+			"from": [8.87025, 13.16854, 5.99],
+			"to": [14.89025, 14.18854, 10.01],
+			"rotation": {"angle": -45, "axis": "z", "origin": [6.88025, 6.67854, 8]},
+			"faces": {
+				"north": {"uv": [11.5, 3, 8.5, 3.5], "texture": "#1"},
+				"east": {"uv": [3, 15.5, 5, 16], "texture": "#1"},
+				"south": {"uv": [11.5, 3.5, 8.5, 4], "texture": "#1"},
+				"up": {"uv": [5.5, 2, 8.5, 0], "texture": "#1"},
+				"down": {"uv": [5.5, 2, 8.5, 4], "texture": "#1"}
+			}
+		},
+		{
+			"name": "LeafendL",
+			"from": [17.1333, 5.61788, 6.5],
+			"to": [23.1333, 6.61788, 9.5],
+			"rotation": {"angle": 0, "axis": "y", "origin": [8.1333, -0.88212, 7]},
+			"faces": {
+				"north": {"uv": [7, 15, 4, 15.5], "texture": "#1"},
+				"east": {"uv": [5, 15.5, 6.5, 16], "texture": "#1"},
+				"south": {"uv": [3, 15.5, 0, 16], "texture": "#1"},
+				"up": {"uv": [8.5, 1.5, 11.5, 0], "texture": "#1"},
+				"down": {"uv": [8.5, 1.5, 11.5, 3], "texture": "#1"}
+			}
+		},
+		{
+			"name": "LeafR",
+			"from": [3.89295, 11.08807, 5.99],
+			"to": [9.91295, 12.10807, 10.01],
+			"rotation": {"angle": 0, "axis": "y", "origin": [11.90295, 4.59807, 8]},
+			"faces": {
+				"north": {"uv": [8.5, 3, 11.5, 3.5], "texture": "#1"},
+				"south": {"uv": [8.5, 3.5, 11.5, 4], "texture": "#1"},
+				"west": {"uv": [3, 15.5, 5, 16], "texture": "#1"},
+				"up": {"uv": [8.5, 2, 5.5, 0], "texture": "#1"},
+				"down": {"uv": [8.5, 2, 5.5, 4], "texture": "#1"}
+			}
+		},
+		{
+			"name": "LeafendR",
+			"from": [-9.32928, 6.63791, 6.5],
+			"to": [-3.32928, 7.63791, 9.5],
+			"rotation": {"angle": -45, "axis": "z", "origin": [5.67072, 0.13791, 7]},
+			"faces": {
+				"north": {"uv": [4, 15, 7, 15.5], "texture": "#1"},
+				"south": {"uv": [0, 15.5, 3, 16], "texture": "#1"},
+				"west": {"uv": [5, 15.5, 6.5, 16], "texture": "#1"},
+				"up": {"uv": [11.5, 1.5, 8.5, 0], "texture": "#1"},
+				"down": {"uv": [11.5, 1.5, 8.5, 3], "texture": "#1"}
+			}
+		}
+	]
+}

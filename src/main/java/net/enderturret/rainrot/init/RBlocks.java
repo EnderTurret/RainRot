@@ -1,10 +1,7 @@
 package net.enderturret.rainrot.init;
 
-import java.util.function.Function;
-
 import net.minecraft.core.Holder;
 import net.minecraft.core.registries.BuiltInRegistries;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
@@ -16,14 +13,15 @@ import net.neoforged.neoforge.registries.DeferredRegister;
 
 import net.enderturret.rainrot.RainRot;
 import net.enderturret.rainrot.RainRotClientConfig;
+import net.enderturret.rainrot.block.FluxCondenserBlock;
 import net.enderturret.rainrot.block.InvPlushieBlock;
 import net.enderturret.rainrot.block.IteratorPlushieBlock;
 import net.enderturret.rainrot.block.MiniIteratorBlock;
+import net.enderturret.rainrot.block.PopcornPlantBlock;
 import net.enderturret.rainrot.block.SaintPlushieBlock;
 import net.enderturret.rainrot.block.SlugPlushieBlock;
 import net.enderturret.rainrot.block.TunnelBlock;
 import net.enderturret.rainrot.block.VendingMachineBlock;
-import net.enderturret.rainrot.block.FluxCondenserBlock;
 
 public final class RBlocks {
 
@@ -32,6 +30,9 @@ public final class RBlocks {
 	public static final Holder<Block> FIVE_PEBBSI_VENDING_MACHINE = REGISTRY.register("five_pebbsi_vending_machine", () -> new VendingMachineBlock(props().sound(SoundType.METAL).requiresCorrectToolForDrops().strength(0.5F).lightLevel(state -> 5)));
 	public static final Holder<Block> FLUX_CONDENSER = REGISTRY.register("zapper", () -> new FluxCondenserBlock(props().sound(SoundType.METAL).requiresCorrectToolForDrops().strength(0.5F)));
 	public static final Holder<Block> TUNNEL = REGISTRY.register("tunnel", () -> new TunnelBlock(props().sound(SoundType.METAL).requiresCorrectToolForDrops().strength(0.5F)));
+
+	public static final Holder<Block> POPCORN_PLANT = REGISTRY.register("popcorn_plant", () -> new PopcornPlantBlock(props().sound(SoundType.AZALEA_LEAVES).strength(0.2F), null));
+	public static final Holder<Block> ROTCORN_PLANT = REGISTRY.register("rotcorn_plant", () -> new PopcornPlantBlock(props().sound(SoundType.AZALEA_LEAVES).strength(0.2F), RainRotClientConfig::spoilWatcher));
 
 	public static final Holder<Block> ARTIFICER_SLUG_PLUSH = REGISTRY.register("artificer_slug_plush", () -> new SlugPlushieBlock(plush(MapColor.TERRACOTTA_RED)));
 	public static final Holder<Block> GOURMAND_SLUG_PLUSH = REGISTRY.register("gourmand_slug_plush", () -> new SlugPlushieBlock(plush(MapColor.TERRACOTTA_WHITE)));

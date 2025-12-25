@@ -62,7 +62,7 @@ public final class RLootTables extends LootTableProvider {
 		protected Iterable<Block> getKnownBlocks() {
 			return RBlocks.REGISTRY.getEntries()
 					.stream()
-					.filter(holder -> holder != RBlocks.FIVE_PEBBSI_VENDING_MACHINE)
+					.filter(holder -> holder != RBlocks.FIVE_PEBBSI_VENDING_MACHINE && holder != RBlocks.POPCORN_PLANT && holder != RBlocks.ROTCORN_PLANT)
 					.map(Holder::value)
 					.toList();
 		}

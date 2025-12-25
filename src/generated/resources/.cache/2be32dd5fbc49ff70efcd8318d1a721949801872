@@ -1,4 +1,4 @@
-// 1.21.1	2024-12-21T02:07:05.205472955	Item Models: rainrot
+// 1.21.1	2025-12-25T00:02:41.014317713	Item Models: rainrot
 3f41ae326271bf96441e4ed4c78a7352c34d611e assets/rainrot/models/item/artificer_slug_plush.json
 0f2fb25ebfa6d0256fc009b8b52c08f55cc7b5ac assets/rainrot/models/item/bowl_of_memory_conflakes.json
 bdb9e6fc14ec082440afb3ec2bea3fd11404cce0 assets/rainrot/models/item/bowl_of_unfortunate_development.json
@@ -13,8 +13,12 @@ ba529ef1d893809d3e812402dbad2ed6d3716cc5 assets/rainrot/models/item/bowl_of_unfo
 ad2cd918ec1407a76f2b24d662aa813ae07eb539 assets/rainrot/models/item/miniature_iterator.json
 293c045b672bbca72224e7015ce22489df4e921d assets/rainrot/models/item/monk_slug_plush.json
 59e89d4767cf4822f7d37eb8c3a0567dc6600ea2 assets/rainrot/models/item/no_significant_harassment_plush.json
+380b6d19ca56ae6ddb8f25d5e0959c9a0daa55a9 assets/rainrot/models/item/popcorn_plant.json
+4839243af337db41233219d249eca537649c921d assets/rainrot/models/item/popcorn_seeds.json
 ac6e61b0ebe740e5e6b57383ef5cf15ccd540780 assets/rainrot/models/item/popped_bubblefruit.json
 6670374219d0960ec09068991f01000123765c8f assets/rainrot/models/item/rivulet_slug_plush.json
+f171e7d265ac32c257f439bb99e0f5a324015773 assets/rainrot/models/item/rotcorn_plant.json
+e0dc9c324b8c644cdbffe929bb3b965aac8a68ae assets/rainrot/models/item/rotcorn_seeds.json
 d521c0dd3fce274daf8b0962d6d8ac2f0f060b15 assets/rainrot/models/item/saint_slug_plush.json
 a0295caa40c1f466c161b281cdd3bc4e3827f537 assets/rainrot/models/item/seven_red_suns_plush.json
 f0fe016392cdd5ac2e941a1cc61988bc5023d00d assets/rainrot/models/item/sliver_of_straw_plush.json
